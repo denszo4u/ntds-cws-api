@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service.js';
 
 @Injectable()
@@ -18,14 +18,23 @@ export class MafjpService {
   }
 
   async getUnitById(id: string) {
-    return this.prisma.symbol_mafjp_unit.findUnique({
-      where: {
-        id,
-      },
-      include: {
-        symbol_mafjp: true,
-      },
-    });
+    const unit =
+      await this.prisma.symbol_mafjp_unit.findUnique({
+        where: {
+          id,
+        },
+        include: {
+          symbol_mafjp: true,
+        },
+      });
+
+    if (!unit) {
+      throw new NotFoundException(
+        `MAFJP unit with id ${id} was not found`,
+      );
+    }
+
+    return unit;
   }
 
   // =====================================================
@@ -44,14 +53,23 @@ export class MafjpService {
   }
 
   async getSymbolById(id: string) {
-    return this.prisma.symbol_mafjp.findUnique({
-      where: {
-        id,
-      },
-      include: {
-        symbol_mafjp_unit: true,
-      },
-    });
+    const symbol =
+      await this.prisma.symbol_mafjp.findUnique({
+        where: {
+          id,
+        },
+        include: {
+          symbol_mafjp_unit: true,
+        },
+      });
+
+    if (!symbol) {
+      throw new NotFoundException(
+        `MAFJP symbol with id ${id} was not found`,
+      );
+    }
+
+    return symbol;
   }
 
   // =====================================================
