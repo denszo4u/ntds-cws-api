@@ -220,8 +220,8 @@ export type SymbolMAFJPUnitWhereInput = {
   SymbolUnitNameEN?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
   SymbolUnitNameBM?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
   SymbolDescription?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
-  SymbolMAFJP?: Prisma.SymbolMAFJPListRelationFilter
   SymbolMAFJPCategory?: Prisma.XOR<Prisma.SymbolMAFJPCategoryNullableScalarRelationFilter, Prisma.SymbolMAFJPCategoryWhereInput> | null
+  SymbolMAFJP?: Prisma.SymbolMAFJPListRelationFilter
 }
 
 export type SymbolMAFJPUnitOrderByWithRelationInput = {
@@ -230,8 +230,8 @@ export type SymbolMAFJPUnitOrderByWithRelationInput = {
   SymbolUnitNameEN?: Prisma.SortOrderInput | Prisma.SortOrder
   SymbolUnitNameBM?: Prisma.SortOrderInput | Prisma.SortOrder
   SymbolDescription?: Prisma.SortOrderInput | Prisma.SortOrder
-  SymbolMAFJP?: Prisma.SymbolMAFJPOrderByRelationAggregateInput
   SymbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryOrderByWithRelationInput
+  SymbolMAFJP?: Prisma.SymbolMAFJPOrderByRelationAggregateInput
 }
 
 export type SymbolMAFJPUnitWhereUniqueInput = Prisma.AtLeast<{
@@ -243,8 +243,8 @@ export type SymbolMAFJPUnitWhereUniqueInput = Prisma.AtLeast<{
   SymbolUnitNameEN?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
   SymbolUnitNameBM?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
   SymbolDescription?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
-  SymbolMAFJP?: Prisma.SymbolMAFJPListRelationFilter
   SymbolMAFJPCategory?: Prisma.XOR<Prisma.SymbolMAFJPCategoryNullableScalarRelationFilter, Prisma.SymbolMAFJPCategoryWhereInput> | null
+  SymbolMAFJP?: Prisma.SymbolMAFJPListRelationFilter
 }, "SymbolUnitID">
 
 export type SymbolMAFJPUnitOrderByWithAggregationInput = {
@@ -276,8 +276,8 @@ export type SymbolMAFJPUnitCreateInput = {
   SymbolUnitNameEN?: string | null
   SymbolUnitNameBM?: string | null
   SymbolDescription?: string | null
-  SymbolMAFJP?: Prisma.SymbolMAFJPCreateNestedManyWithoutSymbolMAFJPUnitInput
   SymbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryCreateNestedOneWithoutSymbolMAFJPUnitInput
+  SymbolMAFJP?: Prisma.SymbolMAFJPCreateNestedManyWithoutSymbolMAFJPUnitInput
 }
 
 export type SymbolMAFJPUnitUncheckedCreateInput = {
@@ -294,8 +294,8 @@ export type SymbolMAFJPUnitUpdateInput = {
   SymbolUnitNameEN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolUnitNameBM?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SymbolMAFJP?: Prisma.SymbolMAFJPUpdateManyWithoutSymbolMAFJPUnitNestedInput
   SymbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryUpdateOneWithoutSymbolMAFJPUnitNestedInput
+  SymbolMAFJP?: Prisma.SymbolMAFJPUpdateManyWithoutSymbolMAFJPUnitNestedInput
 }
 
 export type SymbolMAFJPUnitUncheckedUpdateInput = {
@@ -328,11 +328,6 @@ export type SymbolMAFJPUnitUncheckedUpdateManyInput = {
   SymbolUnitNameEN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolUnitNameBM?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-}
-
-export type SymbolMAFJPUnitNullableScalarRelationFilter = {
-  is?: Prisma.SymbolMAFJPUnitWhereInput | null
-  isNot?: Prisma.SymbolMAFJPUnitWhereInput | null
 }
 
 export type SymbolMAFJPUnitListRelationFilter = {
@@ -379,20 +374,9 @@ export type SymbolMAFJPUnitSumOrderByAggregateInput = {
   SymbolCategoryID?: Prisma.SortOrder
 }
 
-export type SymbolMAFJPUnitCreateNestedOneWithoutSymbolMAFJPInput = {
-  create?: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
-  connectOrCreate?: Prisma.SymbolMAFJPUnitCreateOrConnectWithoutSymbolMAFJPInput
-  connect?: Prisma.SymbolMAFJPUnitWhereUniqueInput
-}
-
-export type SymbolMAFJPUnitUpdateOneWithoutSymbolMAFJPNestedInput = {
-  create?: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
-  connectOrCreate?: Prisma.SymbolMAFJPUnitCreateOrConnectWithoutSymbolMAFJPInput
-  upsert?: Prisma.SymbolMAFJPUnitUpsertWithoutSymbolMAFJPInput
-  disconnect?: Prisma.SymbolMAFJPUnitWhereInput | boolean
-  delete?: Prisma.SymbolMAFJPUnitWhereInput | boolean
-  connect?: Prisma.SymbolMAFJPUnitWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.SymbolMAFJPUnitUpdateToOneWithWhereWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput>, Prisma.SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput>
+export type SymbolMAFJPUnitNullableScalarRelationFilter = {
+  is?: Prisma.SymbolMAFJPUnitWhereInput | null
+  isNot?: Prisma.SymbolMAFJPUnitWhereInput | null
 }
 
 export type SymbolMAFJPUnitCreateNestedManyWithoutSymbolMAFJPCategoryInput = {
@@ -437,52 +421,20 @@ export type SymbolMAFJPUnitUncheckedUpdateManyWithoutSymbolMAFJPCategoryNestedIn
   deleteMany?: Prisma.SymbolMAFJPUnitScalarWhereInput | Prisma.SymbolMAFJPUnitScalarWhereInput[]
 }
 
-export type SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput = {
-  SymbolUnitID: number
-  SymbolUnitNameEN?: string | null
-  SymbolUnitNameBM?: string | null
-  SymbolDescription?: string | null
-  SymbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryCreateNestedOneWithoutSymbolMAFJPUnitInput
+export type SymbolMAFJPUnitCreateNestedOneWithoutSymbolMAFJPInput = {
+  create?: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
+  connectOrCreate?: Prisma.SymbolMAFJPUnitCreateOrConnectWithoutSymbolMAFJPInput
+  connect?: Prisma.SymbolMAFJPUnitWhereUniqueInput
 }
 
-export type SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput = {
-  SymbolUnitID: number
-  SymbolCategoryID?: number | null
-  SymbolUnitNameEN?: string | null
-  SymbolUnitNameBM?: string | null
-  SymbolDescription?: string | null
-}
-
-export type SymbolMAFJPUnitCreateOrConnectWithoutSymbolMAFJPInput = {
-  where: Prisma.SymbolMAFJPUnitWhereUniqueInput
-  create: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
-}
-
-export type SymbolMAFJPUnitUpsertWithoutSymbolMAFJPInput = {
-  update: Prisma.XOR<Prisma.SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput>
-  create: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
-  where?: Prisma.SymbolMAFJPUnitWhereInput
-}
-
-export type SymbolMAFJPUnitUpdateToOneWithWhereWithoutSymbolMAFJPInput = {
-  where?: Prisma.SymbolMAFJPUnitWhereInput
-  data: Prisma.XOR<Prisma.SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput>
-}
-
-export type SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput = {
-  SymbolUnitID?: Prisma.IntFieldUpdateOperationsInput | number
-  SymbolUnitNameEN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SymbolUnitNameBM?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SymbolDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SymbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryUpdateOneWithoutSymbolMAFJPUnitNestedInput
-}
-
-export type SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput = {
-  SymbolUnitID?: Prisma.IntFieldUpdateOperationsInput | number
-  SymbolCategoryID?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  SymbolUnitNameEN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SymbolUnitNameBM?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  SymbolDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+export type SymbolMAFJPUnitUpdateOneWithoutSymbolMAFJPNestedInput = {
+  create?: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
+  connectOrCreate?: Prisma.SymbolMAFJPUnitCreateOrConnectWithoutSymbolMAFJPInput
+  upsert?: Prisma.SymbolMAFJPUnitUpsertWithoutSymbolMAFJPInput
+  disconnect?: Prisma.SymbolMAFJPUnitWhereInput | boolean
+  delete?: Prisma.SymbolMAFJPUnitWhereInput | boolean
+  connect?: Prisma.SymbolMAFJPUnitWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SymbolMAFJPUnitUpdateToOneWithWhereWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput>, Prisma.SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput>
 }
 
 export type SymbolMAFJPUnitCreateWithoutSymbolMAFJPCategoryInput = {
@@ -536,6 +488,54 @@ export type SymbolMAFJPUnitScalarWhereInput = {
   SymbolUnitNameEN?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
   SymbolUnitNameBM?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
   SymbolDescription?: Prisma.StringNullableFilter<"SymbolMAFJPUnit"> | string | null
+}
+
+export type SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput = {
+  SymbolUnitID: number
+  SymbolUnitNameEN?: string | null
+  SymbolUnitNameBM?: string | null
+  SymbolDescription?: string | null
+  SymbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryCreateNestedOneWithoutSymbolMAFJPUnitInput
+}
+
+export type SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput = {
+  SymbolUnitID: number
+  SymbolCategoryID?: number | null
+  SymbolUnitNameEN?: string | null
+  SymbolUnitNameBM?: string | null
+  SymbolDescription?: string | null
+}
+
+export type SymbolMAFJPUnitCreateOrConnectWithoutSymbolMAFJPInput = {
+  where: Prisma.SymbolMAFJPUnitWhereUniqueInput
+  create: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
+}
+
+export type SymbolMAFJPUnitUpsertWithoutSymbolMAFJPInput = {
+  update: Prisma.XOR<Prisma.SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput>
+  create: Prisma.XOR<Prisma.SymbolMAFJPUnitCreateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedCreateWithoutSymbolMAFJPInput>
+  where?: Prisma.SymbolMAFJPUnitWhereInput
+}
+
+export type SymbolMAFJPUnitUpdateToOneWithWhereWithoutSymbolMAFJPInput = {
+  where?: Prisma.SymbolMAFJPUnitWhereInput
+  data: Prisma.XOR<Prisma.SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput, Prisma.SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput>
+}
+
+export type SymbolMAFJPUnitUpdateWithoutSymbolMAFJPInput = {
+  SymbolUnitID?: Prisma.IntFieldUpdateOperationsInput | number
+  SymbolUnitNameEN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  SymbolUnitNameBM?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  SymbolDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  SymbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryUpdateOneWithoutSymbolMAFJPUnitNestedInput
+}
+
+export type SymbolMAFJPUnitUncheckedUpdateWithoutSymbolMAFJPInput = {
+  SymbolUnitID?: Prisma.IntFieldUpdateOperationsInput | number
+  SymbolCategoryID?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  SymbolUnitNameEN?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  SymbolUnitNameBM?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  SymbolDescription?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type SymbolMAFJPUnitCreateManySymbolMAFJPCategoryInput = {
@@ -605,8 +605,8 @@ export type SymbolMAFJPUnitSelect<ExtArgs extends runtime.Types.Extensions.Inter
   SymbolUnitNameEN?: boolean
   SymbolUnitNameBM?: boolean
   SymbolDescription?: boolean
-  SymbolMAFJP?: boolean | Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs>
   SymbolMAFJPCategory?: boolean | Prisma.SymbolMAFJPUnit$SymbolMAFJPCategoryArgs<ExtArgs>
+  SymbolMAFJP?: boolean | Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs>
   _count?: boolean | Prisma.SymbolMAFJPUnitCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["symbolMAFJPUnit"]>
 
@@ -638,8 +638,8 @@ export type SymbolMAFJPUnitSelectScalar = {
 
 export type SymbolMAFJPUnitOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"SymbolUnitID" | "SymbolCategoryID" | "SymbolUnitNameEN" | "SymbolUnitNameBM" | "SymbolDescription", ExtArgs["result"]["symbolMAFJPUnit"]>
 export type SymbolMAFJPUnitInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  SymbolMAFJP?: boolean | Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs>
   SymbolMAFJPCategory?: boolean | Prisma.SymbolMAFJPUnit$SymbolMAFJPCategoryArgs<ExtArgs>
+  SymbolMAFJP?: boolean | Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs>
   _count?: boolean | Prisma.SymbolMAFJPUnitCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SymbolMAFJPUnitIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -652,8 +652,8 @@ export type SymbolMAFJPUnitIncludeUpdateManyAndReturn<ExtArgs extends runtime.Ty
 export type $SymbolMAFJPUnitPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "SymbolMAFJPUnit"
   objects: {
-    SymbolMAFJP: Prisma.$SymbolMAFJPPayload<ExtArgs>[]
     SymbolMAFJPCategory: Prisma.$SymbolMAFJPCategoryPayload<ExtArgs> | null
+    SymbolMAFJP: Prisma.$SymbolMAFJPPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     SymbolUnitID: number
@@ -1055,8 +1055,8 @@ readonly fields: SymbolMAFJPUnitFieldRefs;
  */
 export interface Prisma__SymbolMAFJPUnitClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  SymbolMAFJP<T extends Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SymbolMAFJPPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   SymbolMAFJPCategory<T extends Prisma.SymbolMAFJPUnit$SymbolMAFJPCategoryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJPUnit$SymbolMAFJPCategoryArgs<ExtArgs>>): Prisma.Prisma__SymbolMAFJPCategoryClient<runtime.Types.Result.GetResult<Prisma.$SymbolMAFJPCategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  SymbolMAFJP<T extends Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SymbolMAFJPPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1492,6 +1492,25 @@ export type SymbolMAFJPUnitDeleteManyArgs<ExtArgs extends runtime.Types.Extensio
 }
 
 /**
+ * SymbolMAFJPUnit.SymbolMAFJPCategory
+ */
+export type SymbolMAFJPUnit$SymbolMAFJPCategoryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SymbolMAFJPCategory
+   */
+  select?: Prisma.SymbolMAFJPCategorySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SymbolMAFJPCategory
+   */
+  omit?: Prisma.SymbolMAFJPCategoryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SymbolMAFJPCategoryInclude<ExtArgs> | null
+  where?: Prisma.SymbolMAFJPCategoryWhereInput
+}
+
+/**
  * SymbolMAFJPUnit.SymbolMAFJP
  */
 export type SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1513,25 +1532,6 @@ export type SymbolMAFJPUnit$SymbolMAFJPArgs<ExtArgs extends runtime.Types.Extens
   take?: number
   skip?: number
   distinct?: Prisma.SymbolMAFJPScalarFieldEnum | Prisma.SymbolMAFJPScalarFieldEnum[]
-}
-
-/**
- * SymbolMAFJPUnit.SymbolMAFJPCategory
- */
-export type SymbolMAFJPUnit$SymbolMAFJPCategoryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the SymbolMAFJPCategory
-   */
-  select?: Prisma.SymbolMAFJPCategorySelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the SymbolMAFJPCategory
-   */
-  omit?: Prisma.SymbolMAFJPCategoryOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.SymbolMAFJPCategoryInclude<ExtArgs> | null
-  where?: Prisma.SymbolMAFJPCategoryWhereInput
 }
 
 /**

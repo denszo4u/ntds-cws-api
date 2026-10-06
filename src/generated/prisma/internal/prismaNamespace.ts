@@ -398,17 +398,21 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   SymbolEM: 'SymbolEM',
-  SymbolMAFJP: 'SymbolMAFJP',
+  SymbolType: 'SymbolType',
+  SymbolTypeLibrary: 'SymbolTypeLibrary',
   SymbolMAFJPCategory: 'SymbolMAFJPCategory',
   SymbolMAFJPType: 'SymbolMAFJPType',
   SymbolMAFJPUnit: 'SymbolMAFJPUnit',
+  SymbolMAFJP: 'SymbolMAFJP',
   SymbolOrientation: 'SymbolOrientation',
-  SymbolType: 'SymbolType',
-  SymbolTypeLibrary: 'SymbolTypeLibrary',
   SymbolNTDSCWSCategory: 'SymbolNTDSCWSCategory',
   SymbolNTDSCWSType: 'SymbolNTDSCWSType',
   SymbolNTDSCWSUnit: 'SymbolNTDSCWSUnit',
   SymbolNTDSCWS: 'SymbolNTDSCWS',
+  symbol_mafjp_category: 'symbol_mafjp_category',
+  symbol_mafjp_type: 'symbol_mafjp_type',
+  symbol_orientation: 'symbol_orientation',
+  symbol_type_library: 'symbol_type_library',
   symbol_mafjp_unit: 'symbol_mafjp_unit',
   symbol_mafjp: 'symbol_mafjp'
 } as const
@@ -426,7 +430,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "symbolEM" | "symbolMAFJP" | "symbolMAFJPCategory" | "symbolMAFJPType" | "symbolMAFJPUnit" | "symbolOrientation" | "symbolType" | "symbolTypeLibrary" | "symbolNTDSCWSCategory" | "symbolNTDSCWSType" | "symbolNTDSCWSUnit" | "symbolNTDSCWS" | "symbol_mafjp_unit" | "symbol_mafjp"
+    modelProps: "symbolEM" | "symbolType" | "symbolTypeLibrary" | "symbolMAFJPCategory" | "symbolMAFJPType" | "symbolMAFJPUnit" | "symbolMAFJP" | "symbolOrientation" | "symbolNTDSCWSCategory" | "symbolNTDSCWSType" | "symbolNTDSCWSUnit" | "symbolNTDSCWS" | "symbol_mafjp_category" | "symbol_mafjp_type" | "symbol_orientation" | "symbol_type_library" | "symbol_mafjp_unit" | "symbol_mafjp"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -504,77 +508,151 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    SymbolMAFJP: {
-      payload: Prisma.$SymbolMAFJPPayload<ExtArgs>
-      fields: Prisma.SymbolMAFJPFieldRefs
+    SymbolType: {
+      payload: Prisma.$SymbolTypePayload<ExtArgs>
+      fields: Prisma.SymbolTypeFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.SymbolMAFJPFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload> | null
+          args: Prisma.SymbolTypeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.SymbolMAFJPFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+          args: Prisma.SymbolTypeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
         }
         findFirst: {
-          args: Prisma.SymbolMAFJPFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload> | null
+          args: Prisma.SymbolTypeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.SymbolMAFJPFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+          args: Prisma.SymbolTypeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
         }
         findMany: {
-          args: Prisma.SymbolMAFJPFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>[]
+          args: Prisma.SymbolTypeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>[]
         }
         create: {
-          args: Prisma.SymbolMAFJPCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+          args: Prisma.SymbolTypeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
         }
         createMany: {
-          args: Prisma.SymbolMAFJPCreateManyArgs<ExtArgs>
+          args: Prisma.SymbolTypeCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.SymbolMAFJPCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>[]
+          args: Prisma.SymbolTypeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>[]
         }
         delete: {
-          args: Prisma.SymbolMAFJPDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+          args: Prisma.SymbolTypeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
         }
         update: {
-          args: Prisma.SymbolMAFJPUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+          args: Prisma.SymbolTypeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
         }
         deleteMany: {
-          args: Prisma.SymbolMAFJPDeleteManyArgs<ExtArgs>
+          args: Prisma.SymbolTypeDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.SymbolMAFJPUpdateManyArgs<ExtArgs>
+          args: Prisma.SymbolTypeUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.SymbolMAFJPUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>[]
+          args: Prisma.SymbolTypeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>[]
         }
         upsert: {
-          args: Prisma.SymbolMAFJPUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+          args: Prisma.SymbolTypeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
         }
         aggregate: {
-          args: Prisma.SymbolMAFJPAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbolMAFJP>
+          args: Prisma.SymbolTypeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbolType>
         }
         groupBy: {
-          args: Prisma.SymbolMAFJPGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SymbolMAFJPGroupByOutputType>[]
+          args: Prisma.SymbolTypeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeGroupByOutputType>[]
         }
         count: {
-          args: Prisma.SymbolMAFJPCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SymbolMAFJPCountAggregateOutputType> | number
+          args: Prisma.SymbolTypeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeCountAggregateOutputType> | number
+        }
+      }
+    }
+    SymbolTypeLibrary: {
+      payload: Prisma.$SymbolTypeLibraryPayload<ExtArgs>
+      fields: Prisma.SymbolTypeLibraryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SymbolTypeLibraryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SymbolTypeLibraryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
+        }
+        findFirst: {
+          args: Prisma.SymbolTypeLibraryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SymbolTypeLibraryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
+        }
+        findMany: {
+          args: Prisma.SymbolTypeLibraryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>[]
+        }
+        create: {
+          args: Prisma.SymbolTypeLibraryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
+        }
+        createMany: {
+          args: Prisma.SymbolTypeLibraryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SymbolTypeLibraryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>[]
+        }
+        delete: {
+          args: Prisma.SymbolTypeLibraryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
+        }
+        update: {
+          args: Prisma.SymbolTypeLibraryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
+        }
+        deleteMany: {
+          args: Prisma.SymbolTypeLibraryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SymbolTypeLibraryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SymbolTypeLibraryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>[]
+        }
+        upsert: {
+          args: Prisma.SymbolTypeLibraryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
+        }
+        aggregate: {
+          args: Prisma.SymbolTypeLibraryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbolTypeLibrary>
+        }
+        groupBy: {
+          args: Prisma.SymbolTypeLibraryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeLibraryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SymbolTypeLibraryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeLibraryCountAggregateOutputType> | number
         }
       }
     }
@@ -800,6 +878,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    SymbolMAFJP: {
+      payload: Prisma.$SymbolMAFJPPayload<ExtArgs>
+      fields: Prisma.SymbolMAFJPFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SymbolMAFJPFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SymbolMAFJPFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+        }
+        findFirst: {
+          args: Prisma.SymbolMAFJPFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SymbolMAFJPFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+        }
+        findMany: {
+          args: Prisma.SymbolMAFJPFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>[]
+        }
+        create: {
+          args: Prisma.SymbolMAFJPCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+        }
+        createMany: {
+          args: Prisma.SymbolMAFJPCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SymbolMAFJPCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>[]
+        }
+        delete: {
+          args: Prisma.SymbolMAFJPDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+        }
+        update: {
+          args: Prisma.SymbolMAFJPUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+        }
+        deleteMany: {
+          args: Prisma.SymbolMAFJPDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SymbolMAFJPUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SymbolMAFJPUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>[]
+        }
+        upsert: {
+          args: Prisma.SymbolMAFJPUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolMAFJPPayload>
+        }
+        aggregate: {
+          args: Prisma.SymbolMAFJPAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbolMAFJP>
+        }
+        groupBy: {
+          args: Prisma.SymbolMAFJPGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SymbolMAFJPGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SymbolMAFJPCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SymbolMAFJPCountAggregateOutputType> | number
+        }
+      }
+    }
     SymbolOrientation: {
       payload: Prisma.$SymbolOrientationPayload<ExtArgs>
       fields: Prisma.SymbolOrientationFieldRefs
@@ -871,154 +1023,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.SymbolOrientationCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.SymbolOrientationCountAggregateOutputType> | number
-        }
-      }
-    }
-    SymbolType: {
-      payload: Prisma.$SymbolTypePayload<ExtArgs>
-      fields: Prisma.SymbolTypeFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.SymbolTypeFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.SymbolTypeFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
-        }
-        findFirst: {
-          args: Prisma.SymbolTypeFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.SymbolTypeFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
-        }
-        findMany: {
-          args: Prisma.SymbolTypeFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>[]
-        }
-        create: {
-          args: Prisma.SymbolTypeCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
-        }
-        createMany: {
-          args: Prisma.SymbolTypeCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.SymbolTypeCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>[]
-        }
-        delete: {
-          args: Prisma.SymbolTypeDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
-        }
-        update: {
-          args: Prisma.SymbolTypeUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
-        }
-        deleteMany: {
-          args: Prisma.SymbolTypeDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.SymbolTypeUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.SymbolTypeUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>[]
-        }
-        upsert: {
-          args: Prisma.SymbolTypeUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypePayload>
-        }
-        aggregate: {
-          args: Prisma.SymbolTypeAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbolType>
-        }
-        groupBy: {
-          args: Prisma.SymbolTypeGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.SymbolTypeCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeCountAggregateOutputType> | number
-        }
-      }
-    }
-    SymbolTypeLibrary: {
-      payload: Prisma.$SymbolTypeLibraryPayload<ExtArgs>
-      fields: Prisma.SymbolTypeLibraryFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.SymbolTypeLibraryFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.SymbolTypeLibraryFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
-        }
-        findFirst: {
-          args: Prisma.SymbolTypeLibraryFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.SymbolTypeLibraryFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
-        }
-        findMany: {
-          args: Prisma.SymbolTypeLibraryFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>[]
-        }
-        create: {
-          args: Prisma.SymbolTypeLibraryCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
-        }
-        createMany: {
-          args: Prisma.SymbolTypeLibraryCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.SymbolTypeLibraryCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>[]
-        }
-        delete: {
-          args: Prisma.SymbolTypeLibraryDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
-        }
-        update: {
-          args: Prisma.SymbolTypeLibraryUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
-        }
-        deleteMany: {
-          args: Prisma.SymbolTypeLibraryDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.SymbolTypeLibraryUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.SymbolTypeLibraryUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>[]
-        }
-        upsert: {
-          args: Prisma.SymbolTypeLibraryUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$SymbolTypeLibraryPayload>
-        }
-        aggregate: {
-          args: Prisma.SymbolTypeLibraryAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbolTypeLibrary>
-        }
-        groupBy: {
-          args: Prisma.SymbolTypeLibraryGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeLibraryGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.SymbolTypeLibraryCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.SymbolTypeLibraryCountAggregateOutputType> | number
         }
       }
     }
@@ -1318,6 +1322,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    symbol_mafjp_category: {
+      payload: Prisma.$symbol_mafjp_categoryPayload<ExtArgs>
+      fields: Prisma.symbol_mafjp_categoryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.symbol_mafjp_categoryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.symbol_mafjp_categoryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>
+        }
+        findFirst: {
+          args: Prisma.symbol_mafjp_categoryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.symbol_mafjp_categoryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>
+        }
+        findMany: {
+          args: Prisma.symbol_mafjp_categoryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>[]
+        }
+        create: {
+          args: Prisma.symbol_mafjp_categoryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>
+        }
+        createMany: {
+          args: Prisma.symbol_mafjp_categoryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.symbol_mafjp_categoryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>[]
+        }
+        delete: {
+          args: Prisma.symbol_mafjp_categoryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>
+        }
+        update: {
+          args: Prisma.symbol_mafjp_categoryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>
+        }
+        deleteMany: {
+          args: Prisma.symbol_mafjp_categoryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.symbol_mafjp_categoryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.symbol_mafjp_categoryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>[]
+        }
+        upsert: {
+          args: Prisma.symbol_mafjp_categoryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_categoryPayload>
+        }
+        aggregate: {
+          args: Prisma.Symbol_mafjp_categoryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbol_mafjp_category>
+        }
+        groupBy: {
+          args: Prisma.symbol_mafjp_categoryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_mafjp_categoryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.symbol_mafjp_categoryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_mafjp_categoryCountAggregateOutputType> | number
+        }
+      }
+    }
+    symbol_mafjp_type: {
+      payload: Prisma.$symbol_mafjp_typePayload<ExtArgs>
+      fields: Prisma.symbol_mafjp_typeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.symbol_mafjp_typeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.symbol_mafjp_typeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>
+        }
+        findFirst: {
+          args: Prisma.symbol_mafjp_typeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.symbol_mafjp_typeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>
+        }
+        findMany: {
+          args: Prisma.symbol_mafjp_typeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>[]
+        }
+        create: {
+          args: Prisma.symbol_mafjp_typeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>
+        }
+        createMany: {
+          args: Prisma.symbol_mafjp_typeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.symbol_mafjp_typeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>[]
+        }
+        delete: {
+          args: Prisma.symbol_mafjp_typeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>
+        }
+        update: {
+          args: Prisma.symbol_mafjp_typeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>
+        }
+        deleteMany: {
+          args: Prisma.symbol_mafjp_typeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.symbol_mafjp_typeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.symbol_mafjp_typeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>[]
+        }
+        upsert: {
+          args: Prisma.symbol_mafjp_typeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_mafjp_typePayload>
+        }
+        aggregate: {
+          args: Prisma.Symbol_mafjp_typeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbol_mafjp_type>
+        }
+        groupBy: {
+          args: Prisma.symbol_mafjp_typeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_mafjp_typeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.symbol_mafjp_typeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_mafjp_typeCountAggregateOutputType> | number
+        }
+      }
+    }
+    symbol_orientation: {
+      payload: Prisma.$symbol_orientationPayload<ExtArgs>
+      fields: Prisma.symbol_orientationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.symbol_orientationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.symbol_orientationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>
+        }
+        findFirst: {
+          args: Prisma.symbol_orientationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.symbol_orientationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>
+        }
+        findMany: {
+          args: Prisma.symbol_orientationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>[]
+        }
+        create: {
+          args: Prisma.symbol_orientationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>
+        }
+        createMany: {
+          args: Prisma.symbol_orientationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.symbol_orientationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>[]
+        }
+        delete: {
+          args: Prisma.symbol_orientationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>
+        }
+        update: {
+          args: Prisma.symbol_orientationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>
+        }
+        deleteMany: {
+          args: Prisma.symbol_orientationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.symbol_orientationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.symbol_orientationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>[]
+        }
+        upsert: {
+          args: Prisma.symbol_orientationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_orientationPayload>
+        }
+        aggregate: {
+          args: Prisma.Symbol_orientationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbol_orientation>
+        }
+        groupBy: {
+          args: Prisma.symbol_orientationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_orientationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.symbol_orientationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_orientationCountAggregateOutputType> | number
+        }
+      }
+    }
+    symbol_type_library: {
+      payload: Prisma.$symbol_type_libraryPayload<ExtArgs>
+      fields: Prisma.symbol_type_libraryFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.symbol_type_libraryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.symbol_type_libraryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>
+        }
+        findFirst: {
+          args: Prisma.symbol_type_libraryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.symbol_type_libraryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>
+        }
+        findMany: {
+          args: Prisma.symbol_type_libraryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>[]
+        }
+        create: {
+          args: Prisma.symbol_type_libraryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>
+        }
+        createMany: {
+          args: Prisma.symbol_type_libraryCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.symbol_type_libraryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>[]
+        }
+        delete: {
+          args: Prisma.symbol_type_libraryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>
+        }
+        update: {
+          args: Prisma.symbol_type_libraryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>
+        }
+        deleteMany: {
+          args: Prisma.symbol_type_libraryDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.symbol_type_libraryUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.symbol_type_libraryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>[]
+        }
+        upsert: {
+          args: Prisma.symbol_type_libraryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$symbol_type_libraryPayload>
+        }
+        aggregate: {
+          args: Prisma.Symbol_type_libraryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSymbol_type_library>
+        }
+        groupBy: {
+          args: Prisma.symbol_type_libraryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_type_libraryGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.symbol_type_libraryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Symbol_type_libraryCountAggregateOutputType> | number
+        }
+      }
+    }
     symbol_mafjp_unit: {
       payload: Prisma.$symbol_mafjp_unitPayload<ExtArgs>
       fields: Prisma.symbol_mafjp_unitFieldRefs
@@ -1515,17 +1815,23 @@ export const SymbolEMScalarFieldEnum = {
 export type SymbolEMScalarFieldEnum = (typeof SymbolEMScalarFieldEnum)[keyof typeof SymbolEMScalarFieldEnum]
 
 
-export const SymbolMAFJPScalarFieldEnum = {
-  SymbolID: 'SymbolID',
-  SymbolUnitID: 'SymbolUnitID',
-  SymbolTypeID: 'SymbolTypeID',
-  FontList: 'FontList',
-  SymbolOrientationID: 'SymbolOrientationID',
-  SymbolName: 'SymbolName',
-  SequenceNo: 'SequenceNo'
+export const SymbolTypeScalarFieldEnum = {
+  TypeCode: 'TypeCode',
+  EM: 'EM',
+  NameEN: 'NameEN',
+  NameBM: 'NameBM'
 } as const
 
-export type SymbolMAFJPScalarFieldEnum = (typeof SymbolMAFJPScalarFieldEnum)[keyof typeof SymbolMAFJPScalarFieldEnum]
+export type SymbolTypeScalarFieldEnum = (typeof SymbolTypeScalarFieldEnum)[keyof typeof SymbolTypeScalarFieldEnum]
+
+
+export const SymbolTypeLibraryScalarFieldEnum = {
+  SymbolTypeLibID: 'SymbolTypeLibID',
+  SymbolTypeLibName: 'SymbolTypeLibName',
+  Description: 'Description'
+} as const
+
+export type SymbolTypeLibraryScalarFieldEnum = (typeof SymbolTypeLibraryScalarFieldEnum)[keyof typeof SymbolTypeLibraryScalarFieldEnum]
 
 
 export const SymbolMAFJPCategoryScalarFieldEnum = {
@@ -1560,6 +1866,19 @@ export const SymbolMAFJPUnitScalarFieldEnum = {
 export type SymbolMAFJPUnitScalarFieldEnum = (typeof SymbolMAFJPUnitScalarFieldEnum)[keyof typeof SymbolMAFJPUnitScalarFieldEnum]
 
 
+export const SymbolMAFJPScalarFieldEnum = {
+  SymbolID: 'SymbolID',
+  SymbolUnitID: 'SymbolUnitID',
+  SymbolTypeID: 'SymbolTypeID',
+  FontList: 'FontList',
+  SymbolOrientationID: 'SymbolOrientationID',
+  SymbolName: 'SymbolName',
+  SequenceNo: 'SequenceNo'
+} as const
+
+export type SymbolMAFJPScalarFieldEnum = (typeof SymbolMAFJPScalarFieldEnum)[keyof typeof SymbolMAFJPScalarFieldEnum]
+
+
 export const SymbolOrientationScalarFieldEnum = {
   SymbolOrientationID: 'SymbolOrientationID',
   SymbolOrientationNameEN: 'SymbolOrientationNameEN',
@@ -1567,25 +1886,6 @@ export const SymbolOrientationScalarFieldEnum = {
 } as const
 
 export type SymbolOrientationScalarFieldEnum = (typeof SymbolOrientationScalarFieldEnum)[keyof typeof SymbolOrientationScalarFieldEnum]
-
-
-export const SymbolTypeScalarFieldEnum = {
-  TypeCode: 'TypeCode',
-  EM: 'EM',
-  NameEN: 'NameEN',
-  NameBM: 'NameBM'
-} as const
-
-export type SymbolTypeScalarFieldEnum = (typeof SymbolTypeScalarFieldEnum)[keyof typeof SymbolTypeScalarFieldEnum]
-
-
-export const SymbolTypeLibraryScalarFieldEnum = {
-  SymbolTypeLibID: 'SymbolTypeLibID',
-  SymbolTypeLibName: 'SymbolTypeLibName',
-  Description: 'Description'
-} as const
-
-export type SymbolTypeLibraryScalarFieldEnum = (typeof SymbolTypeLibraryScalarFieldEnum)[keyof typeof SymbolTypeLibraryScalarFieldEnum]
 
 
 export const SymbolNTDSCWSCategoryScalarFieldEnum = {
@@ -1632,6 +1932,45 @@ export const SymbolNTDSCWSScalarFieldEnum = {
 } as const
 
 export type SymbolNTDSCWSScalarFieldEnum = (typeof SymbolNTDSCWSScalarFieldEnum)[keyof typeof SymbolNTDSCWSScalarFieldEnum]
+
+
+export const Symbol_mafjp_categoryScalarFieldEnum = {
+  id: 'id',
+  symbol_category_name_en: 'symbol_category_name_en',
+  symbol_category_name_bm: 'symbol_category_name_bm',
+  symbol_description: 'symbol_description'
+} as const
+
+export type Symbol_mafjp_categoryScalarFieldEnum = (typeof Symbol_mafjp_categoryScalarFieldEnum)[keyof typeof Symbol_mafjp_categoryScalarFieldEnum]
+
+
+export const Symbol_mafjp_typeScalarFieldEnum = {
+  id: 'id',
+  symbol_type_name_en: 'symbol_type_name_en',
+  symbol_type_name_bm: 'symbol_type_name_bm',
+  symbol_type_description: 'symbol_type_description',
+  sequence_no: 'sequence_no'
+} as const
+
+export type Symbol_mafjp_typeScalarFieldEnum = (typeof Symbol_mafjp_typeScalarFieldEnum)[keyof typeof Symbol_mafjp_typeScalarFieldEnum]
+
+
+export const Symbol_orientationScalarFieldEnum = {
+  id: 'id',
+  symbol_orientation_name_en: 'symbol_orientation_name_en',
+  symbol_orientation_name_bm: 'symbol_orientation_name_bm'
+} as const
+
+export type Symbol_orientationScalarFieldEnum = (typeof Symbol_orientationScalarFieldEnum)[keyof typeof Symbol_orientationScalarFieldEnum]
+
+
+export const Symbol_type_libraryScalarFieldEnum = {
+  id: 'id',
+  symbol_type_lib_name: 'symbol_type_lib_name',
+  description: 'description'
+} as const
+
+export type Symbol_type_libraryScalarFieldEnum = (typeof Symbol_type_libraryScalarFieldEnum)[keyof typeof Symbol_type_libraryScalarFieldEnum]
 
 
 export const Symbol_mafjp_unitScalarFieldEnum = {
@@ -1881,17 +2220,21 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   symbolEM?: Prisma.SymbolEMOmit
-  symbolMAFJP?: Prisma.SymbolMAFJPOmit
+  symbolType?: Prisma.SymbolTypeOmit
+  symbolTypeLibrary?: Prisma.SymbolTypeLibraryOmit
   symbolMAFJPCategory?: Prisma.SymbolMAFJPCategoryOmit
   symbolMAFJPType?: Prisma.SymbolMAFJPTypeOmit
   symbolMAFJPUnit?: Prisma.SymbolMAFJPUnitOmit
+  symbolMAFJP?: Prisma.SymbolMAFJPOmit
   symbolOrientation?: Prisma.SymbolOrientationOmit
-  symbolType?: Prisma.SymbolTypeOmit
-  symbolTypeLibrary?: Prisma.SymbolTypeLibraryOmit
   symbolNTDSCWSCategory?: Prisma.SymbolNTDSCWSCategoryOmit
   symbolNTDSCWSType?: Prisma.SymbolNTDSCWSTypeOmit
   symbolNTDSCWSUnit?: Prisma.SymbolNTDSCWSUnitOmit
   symbolNTDSCWS?: Prisma.SymbolNTDSCWSOmit
+  symbol_mafjp_category?: Prisma.symbol_mafjp_categoryOmit
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeOmit
+  symbol_orientation?: Prisma.symbol_orientationOmit
+  symbol_type_library?: Prisma.symbol_type_libraryOmit
   symbol_mafjp_unit?: Prisma.symbol_mafjp_unitOmit
   symbol_mafjp?: Prisma.symbol_mafjpOmit
 }

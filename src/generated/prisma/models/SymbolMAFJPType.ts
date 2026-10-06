@@ -328,11 +328,6 @@ export type SymbolMAFJPTypeUncheckedUpdateManyInput = {
   SequenceNo?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
-export type SymbolMAFJPTypeNullableScalarRelationFilter = {
-  is?: Prisma.SymbolMAFJPTypeWhereInput | null
-  isNot?: Prisma.SymbolMAFJPTypeWhereInput | null
-}
-
 export type SymbolMAFJPTypeCountOrderByAggregateInput = {
   SymbolTypeID?: Prisma.SortOrder
   SymbolTypeNameEN?: Prisma.SortOrder
@@ -365,6 +360,19 @@ export type SymbolMAFJPTypeMinOrderByAggregateInput = {
 export type SymbolMAFJPTypeSumOrderByAggregateInput = {
   SymbolTypeID?: Prisma.SortOrder
   SequenceNo?: Prisma.SortOrder
+}
+
+export type SymbolMAFJPTypeNullableScalarRelationFilter = {
+  is?: Prisma.SymbolMAFJPTypeWhereInput | null
+  isNot?: Prisma.SymbolMAFJPTypeWhereInput | null
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type SymbolMAFJPTypeCreateNestedOneWithoutSymbolMAFJPInput = {

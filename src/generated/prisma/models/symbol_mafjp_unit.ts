@@ -182,6 +182,7 @@ export type symbol_mafjp_unitWhereInput = {
   symbol_unit_name_en?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
   symbol_unit_name_bm?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
   symbol_description?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
+  symbol_mafjp_category?: Prisma.XOR<Prisma.Symbol_mafjp_categoryNullableScalarRelationFilter, Prisma.symbol_mafjp_categoryWhereInput> | null
   symbol_mafjp?: Prisma.Symbol_mafjpListRelationFilter
 }
 
@@ -191,6 +192,7 @@ export type symbol_mafjp_unitOrderByWithRelationInput = {
   symbol_unit_name_en?: Prisma.SortOrderInput | Prisma.SortOrder
   symbol_unit_name_bm?: Prisma.SortOrderInput | Prisma.SortOrder
   symbol_description?: Prisma.SortOrderInput | Prisma.SortOrder
+  symbol_mafjp_category?: Prisma.symbol_mafjp_categoryOrderByWithRelationInput
   symbol_mafjp?: Prisma.symbol_mafjpOrderByRelationAggregateInput
 }
 
@@ -203,6 +205,7 @@ export type symbol_mafjp_unitWhereUniqueInput = Prisma.AtLeast<{
   symbol_unit_name_en?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
   symbol_unit_name_bm?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
   symbol_description?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
+  symbol_mafjp_category?: Prisma.XOR<Prisma.Symbol_mafjp_categoryNullableScalarRelationFilter, Prisma.symbol_mafjp_categoryWhereInput> | null
   symbol_mafjp?: Prisma.Symbol_mafjpListRelationFilter
 }, "id">
 
@@ -230,10 +233,10 @@ export type symbol_mafjp_unitScalarWhereWithAggregatesInput = {
 
 export type symbol_mafjp_unitCreateInput = {
   id?: string
-  symbol_category_id?: string | null
   symbol_unit_name_en?: string | null
   symbol_unit_name_bm?: string | null
   symbol_description?: string | null
+  symbol_mafjp_category?: Prisma.symbol_mafjp_categoryCreateNestedOneWithoutSymbol_mafjp_unitInput
   symbol_mafjp?: Prisma.symbol_mafjpCreateNestedManyWithoutSymbol_mafjp_unitInput
 }
 
@@ -248,10 +251,10 @@ export type symbol_mafjp_unitUncheckedCreateInput = {
 
 export type symbol_mafjp_unitUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol_category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_mafjp_category?: Prisma.symbol_mafjp_categoryUpdateOneWithoutSymbol_mafjp_unitNestedInput
   symbol_mafjp?: Prisma.symbol_mafjpUpdateManyWithoutSymbol_mafjp_unitNestedInput
 }
 
@@ -274,7 +277,6 @@ export type symbol_mafjp_unitCreateManyInput = {
 
 export type symbol_mafjp_unitUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol_category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -286,6 +288,16 @@ export type symbol_mafjp_unitUncheckedUpdateManyInput = {
   symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type Symbol_mafjp_unitListRelationFilter = {
+  every?: Prisma.symbol_mafjp_unitWhereInput
+  some?: Prisma.symbol_mafjp_unitWhereInput
+  none?: Prisma.symbol_mafjp_unitWhereInput
+}
+
+export type symbol_mafjp_unitOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type symbol_mafjp_unitCountOrderByAggregateInput = {
@@ -317,6 +329,48 @@ export type Symbol_mafjp_unitNullableScalarRelationFilter = {
   isNot?: Prisma.symbol_mafjp_unitWhereInput | null
 }
 
+export type symbol_mafjp_unitCreateNestedManyWithoutSymbol_mafjp_categoryInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput> | Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput[] | Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput[]
+  connectOrCreate?: Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput[]
+  createMany?: Prisma.symbol_mafjp_unitCreateManySymbol_mafjp_categoryInputEnvelope
+  connect?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+}
+
+export type symbol_mafjp_unitUncheckedCreateNestedManyWithoutSymbol_mafjp_categoryInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput> | Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput[] | Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput[]
+  connectOrCreate?: Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput[]
+  createMany?: Prisma.symbol_mafjp_unitCreateManySymbol_mafjp_categoryInputEnvelope
+  connect?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+}
+
+export type symbol_mafjp_unitUpdateManyWithoutSymbol_mafjp_categoryNestedInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput> | Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput[] | Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput[]
+  connectOrCreate?: Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput[]
+  upsert?: Prisma.symbol_mafjp_unitUpsertWithWhereUniqueWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitUpsertWithWhereUniqueWithoutSymbol_mafjp_categoryInput[]
+  createMany?: Prisma.symbol_mafjp_unitCreateManySymbol_mafjp_categoryInputEnvelope
+  set?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  disconnect?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  delete?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  connect?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  update?: Prisma.symbol_mafjp_unitUpdateWithWhereUniqueWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitUpdateWithWhereUniqueWithoutSymbol_mafjp_categoryInput[]
+  updateMany?: Prisma.symbol_mafjp_unitUpdateManyWithWhereWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitUpdateManyWithWhereWithoutSymbol_mafjp_categoryInput[]
+  deleteMany?: Prisma.symbol_mafjp_unitScalarWhereInput | Prisma.symbol_mafjp_unitScalarWhereInput[]
+}
+
+export type symbol_mafjp_unitUncheckedUpdateManyWithoutSymbol_mafjp_categoryNestedInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput> | Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput[] | Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput[]
+  connectOrCreate?: Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput[]
+  upsert?: Prisma.symbol_mafjp_unitUpsertWithWhereUniqueWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitUpsertWithWhereUniqueWithoutSymbol_mafjp_categoryInput[]
+  createMany?: Prisma.symbol_mafjp_unitCreateManySymbol_mafjp_categoryInputEnvelope
+  set?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  disconnect?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  delete?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  connect?: Prisma.symbol_mafjp_unitWhereUniqueInput | Prisma.symbol_mafjp_unitWhereUniqueInput[]
+  update?: Prisma.symbol_mafjp_unitUpdateWithWhereUniqueWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitUpdateWithWhereUniqueWithoutSymbol_mafjp_categoryInput[]
+  updateMany?: Prisma.symbol_mafjp_unitUpdateManyWithWhereWithoutSymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitUpdateManyWithWhereWithoutSymbol_mafjp_categoryInput[]
+  deleteMany?: Prisma.symbol_mafjp_unitScalarWhereInput | Prisma.symbol_mafjp_unitScalarWhereInput[]
+}
+
 export type symbol_mafjp_unitCreateNestedOneWithoutSymbol_mafjpInput = {
   create?: Prisma.XOR<Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjpInput, Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjpInput>
   connectOrCreate?: Prisma.symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjpInput
@@ -333,12 +387,65 @@ export type symbol_mafjp_unitUpdateOneWithoutSymbol_mafjpNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.symbol_mafjp_unitUpdateToOneWithWhereWithoutSymbol_mafjpInput, Prisma.symbol_mafjp_unitUpdateWithoutSymbol_mafjpInput>, Prisma.symbol_mafjp_unitUncheckedUpdateWithoutSymbol_mafjpInput>
 }
 
-export type symbol_mafjp_unitCreateWithoutSymbol_mafjpInput = {
+export type symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput = {
   id?: string
-  symbol_category_id?: string | null
   symbol_unit_name_en?: string | null
   symbol_unit_name_bm?: string | null
   symbol_description?: string | null
+  symbol_mafjp?: Prisma.symbol_mafjpCreateNestedManyWithoutSymbol_mafjp_unitInput
+}
+
+export type symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput = {
+  id?: string
+  symbol_unit_name_en?: string | null
+  symbol_unit_name_bm?: string | null
+  symbol_description?: string | null
+  symbol_mafjp?: Prisma.symbol_mafjpUncheckedCreateNestedManyWithoutSymbol_mafjp_unitInput
+}
+
+export type symbol_mafjp_unitCreateOrConnectWithoutSymbol_mafjp_categoryInput = {
+  where: Prisma.symbol_mafjp_unitWhereUniqueInput
+  create: Prisma.XOR<Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput>
+}
+
+export type symbol_mafjp_unitCreateManySymbol_mafjp_categoryInputEnvelope = {
+  data: Prisma.symbol_mafjp_unitCreateManySymbol_mafjp_categoryInput | Prisma.symbol_mafjp_unitCreateManySymbol_mafjp_categoryInput[]
+  skipDuplicates?: boolean
+}
+
+export type symbol_mafjp_unitUpsertWithWhereUniqueWithoutSymbol_mafjp_categoryInput = {
+  where: Prisma.symbol_mafjp_unitWhereUniqueInput
+  update: Prisma.XOR<Prisma.symbol_mafjp_unitUpdateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedUpdateWithoutSymbol_mafjp_categoryInput>
+  create: Prisma.XOR<Prisma.symbol_mafjp_unitCreateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjp_categoryInput>
+}
+
+export type symbol_mafjp_unitUpdateWithWhereUniqueWithoutSymbol_mafjp_categoryInput = {
+  where: Prisma.symbol_mafjp_unitWhereUniqueInput
+  data: Prisma.XOR<Prisma.symbol_mafjp_unitUpdateWithoutSymbol_mafjp_categoryInput, Prisma.symbol_mafjp_unitUncheckedUpdateWithoutSymbol_mafjp_categoryInput>
+}
+
+export type symbol_mafjp_unitUpdateManyWithWhereWithoutSymbol_mafjp_categoryInput = {
+  where: Prisma.symbol_mafjp_unitScalarWhereInput
+  data: Prisma.XOR<Prisma.symbol_mafjp_unitUpdateManyMutationInput, Prisma.symbol_mafjp_unitUncheckedUpdateManyWithoutSymbol_mafjp_categoryInput>
+}
+
+export type symbol_mafjp_unitScalarWhereInput = {
+  AND?: Prisma.symbol_mafjp_unitScalarWhereInput | Prisma.symbol_mafjp_unitScalarWhereInput[]
+  OR?: Prisma.symbol_mafjp_unitScalarWhereInput[]
+  NOT?: Prisma.symbol_mafjp_unitScalarWhereInput | Prisma.symbol_mafjp_unitScalarWhereInput[]
+  id?: Prisma.UuidFilter<"symbol_mafjp_unit"> | string
+  symbol_category_id?: Prisma.UuidNullableFilter<"symbol_mafjp_unit"> | string | null
+  symbol_unit_name_en?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
+  symbol_unit_name_bm?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
+  symbol_description?: Prisma.StringNullableFilter<"symbol_mafjp_unit"> | string | null
+}
+
+export type symbol_mafjp_unitCreateWithoutSymbol_mafjpInput = {
+  id?: string
+  symbol_unit_name_en?: string | null
+  symbol_unit_name_bm?: string | null
+  symbol_description?: string | null
+  symbol_mafjp_category?: Prisma.symbol_mafjp_categoryCreateNestedOneWithoutSymbol_mafjp_unitInput
 }
 
 export type symbol_mafjp_unitUncheckedCreateWithoutSymbol_mafjpInput = {
@@ -367,15 +474,45 @@ export type symbol_mafjp_unitUpdateToOneWithWhereWithoutSymbol_mafjpInput = {
 
 export type symbol_mafjp_unitUpdateWithoutSymbol_mafjpInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_mafjp_category?: Prisma.symbol_mafjp_categoryUpdateOneWithoutSymbol_mafjp_unitNestedInput
+}
+
+export type symbol_mafjp_unitUncheckedUpdateWithoutSymbol_mafjpInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   symbol_category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type symbol_mafjp_unitUncheckedUpdateWithoutSymbol_mafjpInput = {
+export type symbol_mafjp_unitCreateManySymbol_mafjp_categoryInput = {
+  id?: string
+  symbol_unit_name_en?: string | null
+  symbol_unit_name_bm?: string | null
+  symbol_description?: string | null
+}
+
+export type symbol_mafjp_unitUpdateWithoutSymbol_mafjp_categoryInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol_category_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_mafjp?: Prisma.symbol_mafjpUpdateManyWithoutSymbol_mafjp_unitNestedInput
+}
+
+export type symbol_mafjp_unitUncheckedUpdateWithoutSymbol_mafjp_categoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_mafjp?: Prisma.symbol_mafjpUncheckedUpdateManyWithoutSymbol_mafjp_unitNestedInput
+}
+
+export type symbol_mafjp_unitUncheckedUpdateManyWithoutSymbol_mafjp_categoryInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   symbol_unit_name_en?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_unit_name_bm?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -418,6 +555,7 @@ export type symbol_mafjp_unitSelect<ExtArgs extends runtime.Types.Extensions.Int
   symbol_unit_name_en?: boolean
   symbol_unit_name_bm?: boolean
   symbol_description?: boolean
+  symbol_mafjp_category?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs>
   symbol_mafjp?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjpArgs<ExtArgs>
   _count?: boolean | Prisma.Symbol_mafjp_unitCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["symbol_mafjp_unit"]>
@@ -428,6 +566,7 @@ export type symbol_mafjp_unitSelectCreateManyAndReturn<ExtArgs extends runtime.T
   symbol_unit_name_en?: boolean
   symbol_unit_name_bm?: boolean
   symbol_description?: boolean
+  symbol_mafjp_category?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs>
 }, ExtArgs["result"]["symbol_mafjp_unit"]>
 
 export type symbol_mafjp_unitSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -436,6 +575,7 @@ export type symbol_mafjp_unitSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   symbol_unit_name_en?: boolean
   symbol_unit_name_bm?: boolean
   symbol_description?: boolean
+  symbol_mafjp_category?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs>
 }, ExtArgs["result"]["symbol_mafjp_unit"]>
 
 export type symbol_mafjp_unitSelectScalar = {
@@ -448,15 +588,21 @@ export type symbol_mafjp_unitSelectScalar = {
 
 export type symbol_mafjp_unitOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "symbol_category_id" | "symbol_unit_name_en" | "symbol_unit_name_bm" | "symbol_description", ExtArgs["result"]["symbol_mafjp_unit"]>
 export type symbol_mafjp_unitInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  symbol_mafjp_category?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs>
   symbol_mafjp?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjpArgs<ExtArgs>
   _count?: boolean | Prisma.Symbol_mafjp_unitCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type symbol_mafjp_unitIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type symbol_mafjp_unitIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type symbol_mafjp_unitIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  symbol_mafjp_category?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs>
+}
+export type symbol_mafjp_unitIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  symbol_mafjp_category?: boolean | Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs>
+}
 
 export type $symbol_mafjp_unitPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "symbol_mafjp_unit"
   objects: {
+    symbol_mafjp_category: Prisma.$symbol_mafjp_categoryPayload<ExtArgs> | null
     symbol_mafjp: Prisma.$symbol_mafjpPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -859,6 +1005,7 @@ readonly fields: symbol_mafjp_unitFieldRefs;
  */
 export interface Prisma__symbol_mafjp_unitClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  symbol_mafjp_category<T extends Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs>>): Prisma.Prisma__symbol_mafjp_categoryClient<runtime.Types.Result.GetResult<Prisma.$symbol_mafjp_categoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   symbol_mafjp<T extends Prisma.symbol_mafjp_unit$symbol_mafjpArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.symbol_mafjp_unit$symbol_mafjpArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$symbol_mafjpPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1148,6 +1295,10 @@ export type symbol_mafjp_unitCreateManyAndReturnArgs<ExtArgs extends runtime.Typ
    */
   data: Prisma.symbol_mafjp_unitCreateManyInput | Prisma.symbol_mafjp_unitCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.symbol_mafjp_unitIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1218,6 +1369,10 @@ export type symbol_mafjp_unitUpdateManyAndReturnArgs<ExtArgs extends runtime.Typ
    * Limit how many symbol_mafjp_units to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.symbol_mafjp_unitIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1284,6 +1439,25 @@ export type symbol_mafjp_unitDeleteManyArgs<ExtArgs extends runtime.Types.Extens
    * Limit how many symbol_mafjp_units to delete.
    */
   limit?: number
+}
+
+/**
+ * symbol_mafjp_unit.symbol_mafjp_category
+ */
+export type symbol_mafjp_unit$symbol_mafjp_categoryArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the symbol_mafjp_category
+   */
+  select?: Prisma.symbol_mafjp_categorySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the symbol_mafjp_category
+   */
+  omit?: Prisma.symbol_mafjp_categoryOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.symbol_mafjp_categoryInclude<ExtArgs> | null
+  where?: Prisma.symbol_mafjp_categoryWhereInput
 }
 
 /**

@@ -248,9 +248,9 @@ export type SymbolMAFJPWhereInput = {
   SymbolOrientationID?: Prisma.IntNullableFilter<"SymbolMAFJP"> | number | null
   SymbolName?: Prisma.StringNullableFilter<"SymbolMAFJP"> | string | null
   SequenceNo?: Prisma.IntNullableFilter<"SymbolMAFJP"> | number | null
-  SymbolOrientation?: Prisma.XOR<Prisma.SymbolOrientationNullableScalarRelationFilter, Prisma.SymbolOrientationWhereInput> | null
-  SymbolMAFJPType?: Prisma.XOR<Prisma.SymbolMAFJPTypeNullableScalarRelationFilter, Prisma.SymbolMAFJPTypeWhereInput> | null
   SymbolMAFJPUnit?: Prisma.XOR<Prisma.SymbolMAFJPUnitNullableScalarRelationFilter, Prisma.SymbolMAFJPUnitWhereInput> | null
+  SymbolMAFJPType?: Prisma.XOR<Prisma.SymbolMAFJPTypeNullableScalarRelationFilter, Prisma.SymbolMAFJPTypeWhereInput> | null
+  SymbolOrientation?: Prisma.XOR<Prisma.SymbolOrientationNullableScalarRelationFilter, Prisma.SymbolOrientationWhereInput> | null
 }
 
 export type SymbolMAFJPOrderByWithRelationInput = {
@@ -261,9 +261,9 @@ export type SymbolMAFJPOrderByWithRelationInput = {
   SymbolOrientationID?: Prisma.SortOrderInput | Prisma.SortOrder
   SymbolName?: Prisma.SortOrderInput | Prisma.SortOrder
   SequenceNo?: Prisma.SortOrderInput | Prisma.SortOrder
-  SymbolOrientation?: Prisma.SymbolOrientationOrderByWithRelationInput
-  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeOrderByWithRelationInput
   SymbolMAFJPUnit?: Prisma.SymbolMAFJPUnitOrderByWithRelationInput
+  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeOrderByWithRelationInput
+  SymbolOrientation?: Prisma.SymbolOrientationOrderByWithRelationInput
 }
 
 export type SymbolMAFJPWhereUniqueInput = Prisma.AtLeast<{
@@ -277,9 +277,9 @@ export type SymbolMAFJPWhereUniqueInput = Prisma.AtLeast<{
   SymbolOrientationID?: Prisma.IntNullableFilter<"SymbolMAFJP"> | number | null
   SymbolName?: Prisma.StringNullableFilter<"SymbolMAFJP"> | string | null
   SequenceNo?: Prisma.IntNullableFilter<"SymbolMAFJP"> | number | null
-  SymbolOrientation?: Prisma.XOR<Prisma.SymbolOrientationNullableScalarRelationFilter, Prisma.SymbolOrientationWhereInput> | null
-  SymbolMAFJPType?: Prisma.XOR<Prisma.SymbolMAFJPTypeNullableScalarRelationFilter, Prisma.SymbolMAFJPTypeWhereInput> | null
   SymbolMAFJPUnit?: Prisma.XOR<Prisma.SymbolMAFJPUnitNullableScalarRelationFilter, Prisma.SymbolMAFJPUnitWhereInput> | null
+  SymbolMAFJPType?: Prisma.XOR<Prisma.SymbolMAFJPTypeNullableScalarRelationFilter, Prisma.SymbolMAFJPTypeWhereInput> | null
+  SymbolOrientation?: Prisma.XOR<Prisma.SymbolOrientationNullableScalarRelationFilter, Prisma.SymbolOrientationWhereInput> | null
 }, "SymbolID">
 
 export type SymbolMAFJPOrderByWithAggregationInput = {
@@ -315,9 +315,9 @@ export type SymbolMAFJPCreateInput = {
   FontList?: string | null
   SymbolName?: string | null
   SequenceNo?: number | null
-  SymbolOrientation?: Prisma.SymbolOrientationCreateNestedOneWithoutSymbolMAFJPInput
-  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeCreateNestedOneWithoutSymbolMAFJPInput
   SymbolMAFJPUnit?: Prisma.SymbolMAFJPUnitCreateNestedOneWithoutSymbolMAFJPInput
+  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeCreateNestedOneWithoutSymbolMAFJPInput
+  SymbolOrientation?: Prisma.SymbolOrientationCreateNestedOneWithoutSymbolMAFJPInput
 }
 
 export type SymbolMAFJPUncheckedCreateInput = {
@@ -335,9 +335,9 @@ export type SymbolMAFJPUpdateInput = {
   FontList?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SequenceNo?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  SymbolOrientation?: Prisma.SymbolOrientationUpdateOneWithoutSymbolMAFJPNestedInput
-  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeUpdateOneWithoutSymbolMAFJPNestedInput
   SymbolMAFJPUnit?: Prisma.SymbolMAFJPUnitUpdateOneWithoutSymbolMAFJPNestedInput
+  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeUpdateOneWithoutSymbolMAFJPNestedInput
+  SymbolOrientation?: Prisma.SymbolOrientationUpdateOneWithoutSymbolMAFJPNestedInput
 }
 
 export type SymbolMAFJPUncheckedUpdateInput = {
@@ -375,6 +375,16 @@ export type SymbolMAFJPUncheckedUpdateManyInput = {
   SymbolOrientationID?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   SymbolName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SequenceNo?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+}
+
+export type SymbolMAFJPListRelationFilter = {
+  every?: Prisma.SymbolMAFJPWhereInput
+  some?: Prisma.SymbolMAFJPWhereInput
+  none?: Prisma.SymbolMAFJPWhereInput
+}
+
+export type SymbolMAFJPOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type SymbolMAFJPCountOrderByAggregateInput = {
@@ -421,32 +431,6 @@ export type SymbolMAFJPSumOrderByAggregateInput = {
   SymbolTypeID?: Prisma.SortOrder
   SymbolOrientationID?: Prisma.SortOrder
   SequenceNo?: Prisma.SortOrder
-}
-
-export type SymbolMAFJPListRelationFilter = {
-  every?: Prisma.SymbolMAFJPWhereInput
-  some?: Prisma.SymbolMAFJPWhereInput
-  none?: Prisma.SymbolMAFJPWhereInput
-}
-
-export type SymbolMAFJPOrderByRelationAggregateInput = {
-  _count?: Prisma.SortOrder
-}
-
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 export type SymbolMAFJPCreateNestedManyWithoutSymbolMAFJPTypeInput = {
@@ -580,8 +564,8 @@ export type SymbolMAFJPCreateWithoutSymbolMAFJPTypeInput = {
   FontList?: string | null
   SymbolName?: string | null
   SequenceNo?: number | null
-  SymbolOrientation?: Prisma.SymbolOrientationCreateNestedOneWithoutSymbolMAFJPInput
   SymbolMAFJPUnit?: Prisma.SymbolMAFJPUnitCreateNestedOneWithoutSymbolMAFJPInput
+  SymbolOrientation?: Prisma.SymbolOrientationCreateNestedOneWithoutSymbolMAFJPInput
 }
 
 export type SymbolMAFJPUncheckedCreateWithoutSymbolMAFJPTypeInput = {
@@ -637,8 +621,8 @@ export type SymbolMAFJPCreateWithoutSymbolMAFJPUnitInput = {
   FontList?: string | null
   SymbolName?: string | null
   SequenceNo?: number | null
-  SymbolOrientation?: Prisma.SymbolOrientationCreateNestedOneWithoutSymbolMAFJPInput
   SymbolMAFJPType?: Prisma.SymbolMAFJPTypeCreateNestedOneWithoutSymbolMAFJPInput
+  SymbolOrientation?: Prisma.SymbolOrientationCreateNestedOneWithoutSymbolMAFJPInput
 }
 
 export type SymbolMAFJPUncheckedCreateWithoutSymbolMAFJPUnitInput = {
@@ -681,8 +665,8 @@ export type SymbolMAFJPCreateWithoutSymbolOrientationInput = {
   FontList?: string | null
   SymbolName?: string | null
   SequenceNo?: number | null
-  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeCreateNestedOneWithoutSymbolMAFJPInput
   SymbolMAFJPUnit?: Prisma.SymbolMAFJPUnitCreateNestedOneWithoutSymbolMAFJPInput
+  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeCreateNestedOneWithoutSymbolMAFJPInput
 }
 
 export type SymbolMAFJPUncheckedCreateWithoutSymbolOrientationInput = {
@@ -734,8 +718,8 @@ export type SymbolMAFJPUpdateWithoutSymbolMAFJPTypeInput = {
   FontList?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SequenceNo?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  SymbolOrientation?: Prisma.SymbolOrientationUpdateOneWithoutSymbolMAFJPNestedInput
   SymbolMAFJPUnit?: Prisma.SymbolMAFJPUnitUpdateOneWithoutSymbolMAFJPNestedInput
+  SymbolOrientation?: Prisma.SymbolOrientationUpdateOneWithoutSymbolMAFJPNestedInput
 }
 
 export type SymbolMAFJPUncheckedUpdateWithoutSymbolMAFJPTypeInput = {
@@ -770,8 +754,8 @@ export type SymbolMAFJPUpdateWithoutSymbolMAFJPUnitInput = {
   FontList?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SequenceNo?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  SymbolOrientation?: Prisma.SymbolOrientationUpdateOneWithoutSymbolMAFJPNestedInput
   SymbolMAFJPType?: Prisma.SymbolMAFJPTypeUpdateOneWithoutSymbolMAFJPNestedInput
+  SymbolOrientation?: Prisma.SymbolOrientationUpdateOneWithoutSymbolMAFJPNestedInput
 }
 
 export type SymbolMAFJPUncheckedUpdateWithoutSymbolMAFJPUnitInput = {
@@ -806,8 +790,8 @@ export type SymbolMAFJPUpdateWithoutSymbolOrientationInput = {
   FontList?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SymbolName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   SequenceNo?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeUpdateOneWithoutSymbolMAFJPNestedInput
   SymbolMAFJPUnit?: Prisma.SymbolMAFJPUnitUpdateOneWithoutSymbolMAFJPNestedInput
+  SymbolMAFJPType?: Prisma.SymbolMAFJPTypeUpdateOneWithoutSymbolMAFJPNestedInput
 }
 
 export type SymbolMAFJPUncheckedUpdateWithoutSymbolOrientationInput = {
@@ -838,9 +822,9 @@ export type SymbolMAFJPSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   SymbolOrientationID?: boolean
   SymbolName?: boolean
   SequenceNo?: boolean
-  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
-  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
   SymbolMAFJPUnit?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs>
+  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
+  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
 }, ExtArgs["result"]["symbolMAFJP"]>
 
 export type SymbolMAFJPSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -851,9 +835,9 @@ export type SymbolMAFJPSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   SymbolOrientationID?: boolean
   SymbolName?: boolean
   SequenceNo?: boolean
-  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
-  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
   SymbolMAFJPUnit?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs>
+  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
+  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
 }, ExtArgs["result"]["symbolMAFJP"]>
 
 export type SymbolMAFJPSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -864,9 +848,9 @@ export type SymbolMAFJPSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   SymbolOrientationID?: boolean
   SymbolName?: boolean
   SequenceNo?: boolean
-  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
-  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
   SymbolMAFJPUnit?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs>
+  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
+  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
 }, ExtArgs["result"]["symbolMAFJP"]>
 
 export type SymbolMAFJPSelectScalar = {
@@ -881,27 +865,27 @@ export type SymbolMAFJPSelectScalar = {
 
 export type SymbolMAFJPOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"SymbolID" | "SymbolUnitID" | "SymbolTypeID" | "FontList" | "SymbolOrientationID" | "SymbolName" | "SequenceNo", ExtArgs["result"]["symbolMAFJP"]>
 export type SymbolMAFJPInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
-  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
   SymbolMAFJPUnit?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs>
+  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
+  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
 }
 export type SymbolMAFJPIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
-  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
   SymbolMAFJPUnit?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs>
+  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
+  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
 }
 export type SymbolMAFJPIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
-  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
   SymbolMAFJPUnit?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs>
+  SymbolMAFJPType?: boolean | Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>
+  SymbolOrientation?: boolean | Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>
 }
 
 export type $SymbolMAFJPPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "SymbolMAFJP"
   objects: {
-    SymbolOrientation: Prisma.$SymbolOrientationPayload<ExtArgs> | null
-    SymbolMAFJPType: Prisma.$SymbolMAFJPTypePayload<ExtArgs> | null
     SymbolMAFJPUnit: Prisma.$SymbolMAFJPUnitPayload<ExtArgs> | null
+    SymbolMAFJPType: Prisma.$SymbolMAFJPTypePayload<ExtArgs> | null
+    SymbolOrientation: Prisma.$SymbolOrientationPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     SymbolID: number
@@ -1305,9 +1289,9 @@ readonly fields: SymbolMAFJPFieldRefs;
  */
 export interface Prisma__SymbolMAFJPClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  SymbolOrientation<T extends Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>>): Prisma.Prisma__SymbolOrientationClient<runtime.Types.Result.GetResult<Prisma.$SymbolOrientationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  SymbolMAFJPType<T extends Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>>): Prisma.Prisma__SymbolMAFJPTypeClient<runtime.Types.Result.GetResult<Prisma.$SymbolMAFJPTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   SymbolMAFJPUnit<T extends Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs>>): Prisma.Prisma__SymbolMAFJPUnitClient<runtime.Types.Result.GetResult<Prisma.$SymbolMAFJPUnitPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  SymbolMAFJPType<T extends Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs>>): Prisma.Prisma__SymbolMAFJPTypeClient<runtime.Types.Result.GetResult<Prisma.$SymbolMAFJPTypePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  SymbolOrientation<T extends Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.SymbolMAFJP$SymbolOrientationArgs<ExtArgs>>): Prisma.Prisma__SymbolOrientationClient<runtime.Types.Result.GetResult<Prisma.$SymbolOrientationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1745,22 +1729,22 @@ export type SymbolMAFJPDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.I
 }
 
 /**
- * SymbolMAFJP.SymbolOrientation
+ * SymbolMAFJP.SymbolMAFJPUnit
  */
-export type SymbolMAFJP$SymbolOrientationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SymbolOrientation
+   * Select specific fields to fetch from the SymbolMAFJPUnit
    */
-  select?: Prisma.SymbolOrientationSelect<ExtArgs> | null
+  select?: Prisma.SymbolMAFJPUnitSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SymbolOrientation
+   * Omit specific fields from the SymbolMAFJPUnit
    */
-  omit?: Prisma.SymbolOrientationOmit<ExtArgs> | null
+  omit?: Prisma.SymbolMAFJPUnitOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SymbolOrientationInclude<ExtArgs> | null
-  where?: Prisma.SymbolOrientationWhereInput
+  include?: Prisma.SymbolMAFJPUnitInclude<ExtArgs> | null
+  where?: Prisma.SymbolMAFJPUnitWhereInput
 }
 
 /**
@@ -1783,22 +1767,22 @@ export type SymbolMAFJP$SymbolMAFJPTypeArgs<ExtArgs extends runtime.Types.Extens
 }
 
 /**
- * SymbolMAFJP.SymbolMAFJPUnit
+ * SymbolMAFJP.SymbolOrientation
  */
-export type SymbolMAFJP$SymbolMAFJPUnitArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SymbolMAFJP$SymbolOrientationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the SymbolMAFJPUnit
+   * Select specific fields to fetch from the SymbolOrientation
    */
-  select?: Prisma.SymbolMAFJPUnitSelect<ExtArgs> | null
+  select?: Prisma.SymbolOrientationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the SymbolMAFJPUnit
+   * Omit specific fields from the SymbolOrientation
    */
-  omit?: Prisma.SymbolMAFJPUnitOmit<ExtArgs> | null
+  omit?: Prisma.SymbolOrientationOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SymbolMAFJPUnitInclude<ExtArgs> | null
-  where?: Prisma.SymbolMAFJPUnitWhereInput
+  include?: Prisma.SymbolOrientationInclude<ExtArgs> | null
+  where?: Prisma.SymbolOrientationWhereInput
 }
 
 /**

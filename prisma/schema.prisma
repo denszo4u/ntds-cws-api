@@ -8,10 +8,9 @@ datasource db {
   schemas  = ["public", "symbology"]
 }
 
-// =====================================================
-// OLD / SOURCE TABLES
-// Schema: public
-// =====================================================
+// ======================================================
+// LEGACY / SOURCE TABLES - PUBLIC
+// ======================================================
 
 model SymbolEM {
   EMCode String  @id @db.Char(1)
@@ -22,21 +21,26 @@ model SymbolEM {
   @@schema("public")
 }
 
-model SymbolMAFJP {
-  SymbolID            Int     @id
-  SymbolUnitID        Int?    @db.SmallInt
-  SymbolTypeID        Int?    @db.SmallInt
-  FontList            String? @db.VarChar(8000)
-  SymbolOrientationID Int?    @db.SmallInt
-  SymbolName          String? @db.VarChar(100)
-  SequenceNo          Int?    @db.SmallInt
-
-  SymbolOrientation SymbolOrientation? @relation(fields: [SymbolOrientationID], references: [SymbolOrientationID])
-  SymbolMAFJPType   SymbolMAFJPType?   @relation(fields: [SymbolTypeID], references: [SymbolTypeID])
-  SymbolMAFJPUnit   SymbolMAFJPUnit?   @relation(fields: [SymbolUnitID], references: [SymbolUnitID])
+model SymbolType {
+  TypeCode String  @id @db.Char(1)
+  EM       String? @db.VarChar(2)
+  NameEN   String? @db.VarChar(100)
+  NameBM   String? @db.VarChar(100)
 
   @@schema("public")
 }
+
+model SymbolTypeLibrary {
+  SymbolTypeLibID   Int     @id @db.SmallInt
+  SymbolTypeLibName String? @db.VarChar(30)
+  Description       String? @db.VarChar(100)
+
+  @@schema("public")
+}
+
+// ======================================================
+// LEGACY MAFJP - PUBLIC
+// ======================================================
 
 model SymbolMAFJPCategory {
   SymbolCategoryID     Int     @id @db.SmallInt
@@ -68,8 +72,24 @@ model SymbolMAFJPUnit {
   SymbolUnitNameBM  String? @db.VarChar(200)
   SymbolDescription String? @db.VarChar(200)
 
-  SymbolMAFJP         SymbolMAFJP[]
   SymbolMAFJPCategory SymbolMAFJPCategory? @relation(fields: [SymbolCategoryID], references: [SymbolCategoryID])
+  SymbolMAFJP         SymbolMAFJP[]
+
+  @@schema("public")
+}
+
+model SymbolMAFJP {
+  SymbolID            Int     @id
+  SymbolUnitID        Int?    @db.SmallInt
+  SymbolTypeID        Int?    @db.SmallInt
+  FontList            String? @db.VarChar(8000)
+  SymbolOrientationID Int?    @db.SmallInt
+  SymbolName          String? @db.VarChar(100)
+  SequenceNo          Int?    @db.SmallInt
+
+  SymbolMAFJPUnit   SymbolMAFJPUnit?   @relation(fields: [SymbolUnitID], references: [SymbolUnitID])
+  SymbolMAFJPType   SymbolMAFJPType?   @relation(fields: [SymbolTypeID], references: [SymbolTypeID])
+  SymbolOrientation SymbolOrientation? @relation(fields: [SymbolOrientationID], references: [SymbolOrientationID])
 
   @@schema("public")
 }
@@ -85,27 +105,9 @@ model SymbolOrientation {
   @@schema("public")
 }
 
-model SymbolType {
-  TypeCode String  @id @db.Char(1)
-  EM       String? @db.VarChar(2)
-  NameEN   String? @db.VarChar(100)
-  NameBM   String? @db.VarChar(100)
-
-  @@schema("public")
-}
-
-model SymbolTypeLibrary {
-  SymbolTypeLibID   Int     @id @db.SmallInt
-  SymbolTypeLibName String? @db.VarChar(30)
-  Description       String? @db.VarChar(100)
-
-  @@schema("public")
-}
-
-// =====================================================
-// NTDS-CWS OLD TABLES
-// Schema: public
-// =====================================================
+// ======================================================
+// LEGACY NTDS-CWS - PUBLIC
+// ======================================================
 
 model SymbolNTDSCWSCategory {
   SymbolCategoryID     Int     @id @db.SmallInt
@@ -115,7 +117,6 @@ model SymbolNTDSCWSCategory {
 
   SymbolNTDSCWSUnit SymbolNTDSCWSUnit[]
 
-  @@map("SymbolNTDSCWSCategory")
   @@schema("public")
 }
 
@@ -127,7 +128,6 @@ model SymbolNTDSCWSType {
 
   SymbolNTDSCWS SymbolNTDSCWS[]
 
-  @@map("SymbolNTDSCWSType")
   @@schema("public")
 }
 
@@ -141,7 +141,6 @@ model SymbolNTDSCWSUnit {
   SymbolNTDSCWSCategory SymbolNTDSCWSCategory? @relation(fields: [SymbolCategoryID], references: [SymbolCategoryID])
   SymbolNTDSCWS         SymbolNTDSCWS[]
 
-  @@map("SymbolNTDSCWSUnit")
   @@schema("public")
 }
 
@@ -160,14 +159,53 @@ model SymbolNTDSCWS {
   SymbolNTDSCWSType SymbolNTDSCWSType? @relation(fields: [SymbolTypeID], references: [SymbolTypeID])
   SymbolOrientation SymbolOrientation? @relation(fields: [SymbolOrientationID], references: [SymbolOrientationID])
 
-  @@map("SymbolNTDSCWS")
   @@schema("public")
 }
 
-// =====================================================
-// NEW FINAL MAFJP TABLES
-// Schema: symbology
-// =====================================================
+// ======================================================
+// NEW UUID MAFJP - SYMBOLOGY
+// ======================================================
+
+model symbol_mafjp_category {
+  id                      String  @id @default(dbgenerated("uuidv7()")) @db.Uuid
+  symbol_category_name_en String? @db.VarChar(200)
+  symbol_category_name_bm String? @db.VarChar(200)
+  symbol_description      String? @db.VarChar(200)
+
+  symbol_mafjp_unit symbol_mafjp_unit[]
+
+  @@schema("symbology")
+}
+
+model symbol_mafjp_type {
+  id                      String  @id @default(dbgenerated("uuidv7()")) @db.Uuid
+  symbol_type_name_en     String? @db.VarChar(100)
+  symbol_type_name_bm     String? @db.VarChar(100)
+  symbol_type_description String? @db.VarChar(100)
+  sequence_no             Int?    @db.SmallInt
+
+  symbol_mafjp symbol_mafjp[]
+
+  @@schema("symbology")
+}
+
+model symbol_orientation {
+  id                         String  @id @default(dbgenerated("uuidv7()")) @db.Uuid
+  symbol_orientation_name_en String? @db.VarChar(50)
+  symbol_orientation_name_bm String? @db.VarChar(50)
+
+  symbol_mafjp symbol_mafjp[]
+
+  @@schema("symbology")
+}
+
+model symbol_type_library {
+  id                   String  @id @default(dbgenerated("uuidv7()")) @db.Uuid
+  symbol_type_lib_name String? @db.VarChar(30)
+  description          String? @db.VarChar(100)
+
+  @@schema("symbology")
+}
 
 model symbol_mafjp_unit {
   id                  String  @id @default(dbgenerated("uuidv7()")) @db.Uuid
@@ -176,7 +214,8 @@ model symbol_mafjp_unit {
   symbol_unit_name_bm String? @db.VarChar(200)
   symbol_description  String? @db.VarChar(200)
 
-  symbol_mafjp symbol_mafjp[]
+  symbol_mafjp_category symbol_mafjp_category? @relation(fields: [symbol_category_id], references: [id], map: "fk_symbol_mafjp_unit_category")
+  symbol_mafjp          symbol_mafjp[]
 
   @@index([symbol_category_id], map: "idx_symbol_mafjp_unit_category_id")
   @@schema("symbology")
@@ -191,7 +230,9 @@ model symbol_mafjp {
   symbol_name           String? @db.VarChar(100)
   sequence_no           Int?    @db.SmallInt
 
-  symbol_mafjp_unit symbol_mafjp_unit? @relation(fields: [symbol_mafjp_unit_id], references: [id], map: "fk_symbol_mafjp_unit")
+  symbol_mafjp_unit  symbol_mafjp_unit?  @relation(fields: [symbol_mafjp_unit_id], references: [id], map: "fk_symbol_mafjp_unit")
+  symbol_mafjp_type  symbol_mafjp_type?  @relation(fields: [symbol_type_id], references: [id], map: "fk_symbol_mafjp_type")
+  symbol_orientation symbol_orientation? @relation(fields: [symbol_orientation_id], references: [id], map: "fk_symbol_mafjp_orientation")
 
   @@index([symbol_mafjp_unit_id], map: "idx_symbol_mafjp_unit_id")
   @@index([symbol_type_id], map: "idx_symbol_mafjp_type_id")

@@ -233,6 +233,8 @@ export type symbol_mafjpWhereInput = {
   symbol_name?: Prisma.StringNullableFilter<"symbol_mafjp"> | string | null
   sequence_no?: Prisma.IntNullableFilter<"symbol_mafjp"> | number | null
   symbol_mafjp_unit?: Prisma.XOR<Prisma.Symbol_mafjp_unitNullableScalarRelationFilter, Prisma.symbol_mafjp_unitWhereInput> | null
+  symbol_mafjp_type?: Prisma.XOR<Prisma.Symbol_mafjp_typeNullableScalarRelationFilter, Prisma.symbol_mafjp_typeWhereInput> | null
+  symbol_orientation?: Prisma.XOR<Prisma.Symbol_orientationNullableScalarRelationFilter, Prisma.symbol_orientationWhereInput> | null
 }
 
 export type symbol_mafjpOrderByWithRelationInput = {
@@ -244,6 +246,8 @@ export type symbol_mafjpOrderByWithRelationInput = {
   symbol_name?: Prisma.SortOrderInput | Prisma.SortOrder
   sequence_no?: Prisma.SortOrderInput | Prisma.SortOrder
   symbol_mafjp_unit?: Prisma.symbol_mafjp_unitOrderByWithRelationInput
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeOrderByWithRelationInput
+  symbol_orientation?: Prisma.symbol_orientationOrderByWithRelationInput
 }
 
 export type symbol_mafjpWhereUniqueInput = Prisma.AtLeast<{
@@ -258,6 +262,8 @@ export type symbol_mafjpWhereUniqueInput = Prisma.AtLeast<{
   symbol_name?: Prisma.StringNullableFilter<"symbol_mafjp"> | string | null
   sequence_no?: Prisma.IntNullableFilter<"symbol_mafjp"> | number | null
   symbol_mafjp_unit?: Prisma.XOR<Prisma.Symbol_mafjp_unitNullableScalarRelationFilter, Prisma.symbol_mafjp_unitWhereInput> | null
+  symbol_mafjp_type?: Prisma.XOR<Prisma.Symbol_mafjp_typeNullableScalarRelationFilter, Prisma.symbol_mafjp_typeWhereInput> | null
+  symbol_orientation?: Prisma.XOR<Prisma.Symbol_orientationNullableScalarRelationFilter, Prisma.symbol_orientationWhereInput> | null
 }, "id">
 
 export type symbol_mafjpOrderByWithAggregationInput = {
@@ -290,12 +296,12 @@ export type symbol_mafjpScalarWhereWithAggregatesInput = {
 
 export type symbol_mafjpCreateInput = {
   id?: string
-  symbol_type_id?: string | null
   font_list?: string | null
-  symbol_orientation_id?: string | null
   symbol_name?: string | null
   sequence_no?: number | null
   symbol_mafjp_unit?: Prisma.symbol_mafjp_unitCreateNestedOneWithoutSymbol_mafjpInput
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeCreateNestedOneWithoutSymbol_mafjpInput
+  symbol_orientation?: Prisma.symbol_orientationCreateNestedOneWithoutSymbol_mafjpInput
 }
 
 export type symbol_mafjpUncheckedCreateInput = {
@@ -310,12 +316,12 @@ export type symbol_mafjpUncheckedCreateInput = {
 
 export type symbol_mafjpUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol_type_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  symbol_orientation_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   symbol_mafjp_unit?: Prisma.symbol_mafjp_unitUpdateOneWithoutSymbol_mafjpNestedInput
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeUpdateOneWithoutSymbol_mafjpNestedInput
+  symbol_orientation?: Prisma.symbol_orientationUpdateOneWithoutSymbol_mafjpNestedInput
 }
 
 export type symbol_mafjpUncheckedUpdateInput = {
@@ -340,9 +346,7 @@ export type symbol_mafjpCreateManyInput = {
 
 export type symbol_mafjpUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol_type_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  symbol_orientation_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
@@ -405,6 +409,90 @@ export type symbol_mafjpSumOrderByAggregateInput = {
   sequence_no?: Prisma.SortOrder
 }
 
+export type symbol_mafjpCreateNestedManyWithoutSymbol_mafjp_typeInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput> | Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_mafjp_typeInputEnvelope
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+}
+
+export type symbol_mafjpUncheckedCreateNestedManyWithoutSymbol_mafjp_typeInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput> | Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_mafjp_typeInputEnvelope
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+}
+
+export type symbol_mafjpUpdateManyWithoutSymbol_mafjp_typeNestedInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput> | Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput[]
+  upsert?: Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_mafjp_typeInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_mafjp_typeInputEnvelope
+  set?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  disconnect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  delete?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  update?: Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_mafjp_typeInput[]
+  updateMany?: Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_mafjp_typeInput[]
+  deleteMany?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
+}
+
+export type symbol_mafjpUncheckedUpdateManyWithoutSymbol_mafjp_typeNestedInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput> | Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput[]
+  upsert?: Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_mafjp_typeInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_mafjp_typeInputEnvelope
+  set?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  disconnect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  delete?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  update?: Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_mafjp_typeInput[]
+  updateMany?: Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_mafjp_typeInput | Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_mafjp_typeInput[]
+  deleteMany?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
+}
+
+export type symbol_mafjpCreateNestedManyWithoutSymbol_orientationInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput> | Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_orientationInputEnvelope
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+}
+
+export type symbol_mafjpUncheckedCreateNestedManyWithoutSymbol_orientationInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput> | Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_orientationInputEnvelope
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+}
+
+export type symbol_mafjpUpdateManyWithoutSymbol_orientationNestedInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput> | Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput[]
+  upsert?: Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_orientationInput | Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_orientationInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_orientationInputEnvelope
+  set?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  disconnect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  delete?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  update?: Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_orientationInput | Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_orientationInput[]
+  updateMany?: Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_orientationInput | Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_orientationInput[]
+  deleteMany?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
+}
+
+export type symbol_mafjpUncheckedUpdateManyWithoutSymbol_orientationNestedInput = {
+  create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput> | Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput[]
+  connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput[]
+  upsert?: Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_orientationInput | Prisma.symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_orientationInput[]
+  createMany?: Prisma.symbol_mafjpCreateManySymbol_orientationInputEnvelope
+  set?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  disconnect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  delete?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  connect?: Prisma.symbol_mafjpWhereUniqueInput | Prisma.symbol_mafjpWhereUniqueInput[]
+  update?: Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_orientationInput | Prisma.symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_orientationInput[]
+  updateMany?: Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_orientationInput | Prisma.symbol_mafjpUpdateManyWithWhereWithoutSymbol_orientationInput[]
+  deleteMany?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
+}
+
 export type symbol_mafjpCreateNestedManyWithoutSymbol_mafjp_unitInput = {
   create?: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_unitInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_unitInput> | Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_unitInput[] | Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_unitInput[]
   connectOrCreate?: Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_unitInput | Prisma.symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_unitInput[]
@@ -447,13 +535,114 @@ export type symbol_mafjpUncheckedUpdateManyWithoutSymbol_mafjp_unitNestedInput =
   deleteMany?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
 }
 
-export type symbol_mafjpCreateWithoutSymbol_mafjp_unitInput = {
+export type symbol_mafjpCreateWithoutSymbol_mafjp_typeInput = {
   id?: string
-  symbol_type_id?: string | null
+  font_list?: string | null
+  symbol_name?: string | null
+  sequence_no?: number | null
+  symbol_mafjp_unit?: Prisma.symbol_mafjp_unitCreateNestedOneWithoutSymbol_mafjpInput
+  symbol_orientation?: Prisma.symbol_orientationCreateNestedOneWithoutSymbol_mafjpInput
+}
+
+export type symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput = {
+  id?: string
+  symbol_mafjp_unit_id?: string | null
   font_list?: string | null
   symbol_orientation_id?: string | null
   symbol_name?: string | null
   sequence_no?: number | null
+}
+
+export type symbol_mafjpCreateOrConnectWithoutSymbol_mafjp_typeInput = {
+  where: Prisma.symbol_mafjpWhereUniqueInput
+  create: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput>
+}
+
+export type symbol_mafjpCreateManySymbol_mafjp_typeInputEnvelope = {
+  data: Prisma.symbol_mafjpCreateManySymbol_mafjp_typeInput | Prisma.symbol_mafjpCreateManySymbol_mafjp_typeInput[]
+  skipDuplicates?: boolean
+}
+
+export type symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_mafjp_typeInput = {
+  where: Prisma.symbol_mafjpWhereUniqueInput
+  update: Prisma.XOR<Prisma.symbol_mafjpUpdateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedUpdateWithoutSymbol_mafjp_typeInput>
+  create: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_typeInput>
+}
+
+export type symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_mafjp_typeInput = {
+  where: Prisma.symbol_mafjpWhereUniqueInput
+  data: Prisma.XOR<Prisma.symbol_mafjpUpdateWithoutSymbol_mafjp_typeInput, Prisma.symbol_mafjpUncheckedUpdateWithoutSymbol_mafjp_typeInput>
+}
+
+export type symbol_mafjpUpdateManyWithWhereWithoutSymbol_mafjp_typeInput = {
+  where: Prisma.symbol_mafjpScalarWhereInput
+  data: Prisma.XOR<Prisma.symbol_mafjpUpdateManyMutationInput, Prisma.symbol_mafjpUncheckedUpdateManyWithoutSymbol_mafjp_typeInput>
+}
+
+export type symbol_mafjpScalarWhereInput = {
+  AND?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
+  OR?: Prisma.symbol_mafjpScalarWhereInput[]
+  NOT?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
+  id?: Prisma.UuidFilter<"symbol_mafjp"> | string
+  symbol_mafjp_unit_id?: Prisma.UuidNullableFilter<"symbol_mafjp"> | string | null
+  symbol_type_id?: Prisma.UuidNullableFilter<"symbol_mafjp"> | string | null
+  font_list?: Prisma.StringNullableFilter<"symbol_mafjp"> | string | null
+  symbol_orientation_id?: Prisma.UuidNullableFilter<"symbol_mafjp"> | string | null
+  symbol_name?: Prisma.StringNullableFilter<"symbol_mafjp"> | string | null
+  sequence_no?: Prisma.IntNullableFilter<"symbol_mafjp"> | number | null
+}
+
+export type symbol_mafjpCreateWithoutSymbol_orientationInput = {
+  id?: string
+  font_list?: string | null
+  symbol_name?: string | null
+  sequence_no?: number | null
+  symbol_mafjp_unit?: Prisma.symbol_mafjp_unitCreateNestedOneWithoutSymbol_mafjpInput
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeCreateNestedOneWithoutSymbol_mafjpInput
+}
+
+export type symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput = {
+  id?: string
+  symbol_mafjp_unit_id?: string | null
+  symbol_type_id?: string | null
+  font_list?: string | null
+  symbol_name?: string | null
+  sequence_no?: number | null
+}
+
+export type symbol_mafjpCreateOrConnectWithoutSymbol_orientationInput = {
+  where: Prisma.symbol_mafjpWhereUniqueInput
+  create: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput>
+}
+
+export type symbol_mafjpCreateManySymbol_orientationInputEnvelope = {
+  data: Prisma.symbol_mafjpCreateManySymbol_orientationInput | Prisma.symbol_mafjpCreateManySymbol_orientationInput[]
+  skipDuplicates?: boolean
+}
+
+export type symbol_mafjpUpsertWithWhereUniqueWithoutSymbol_orientationInput = {
+  where: Prisma.symbol_mafjpWhereUniqueInput
+  update: Prisma.XOR<Prisma.symbol_mafjpUpdateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedUpdateWithoutSymbol_orientationInput>
+  create: Prisma.XOR<Prisma.symbol_mafjpCreateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedCreateWithoutSymbol_orientationInput>
+}
+
+export type symbol_mafjpUpdateWithWhereUniqueWithoutSymbol_orientationInput = {
+  where: Prisma.symbol_mafjpWhereUniqueInput
+  data: Prisma.XOR<Prisma.symbol_mafjpUpdateWithoutSymbol_orientationInput, Prisma.symbol_mafjpUncheckedUpdateWithoutSymbol_orientationInput>
+}
+
+export type symbol_mafjpUpdateManyWithWhereWithoutSymbol_orientationInput = {
+  where: Prisma.symbol_mafjpScalarWhereInput
+  data: Prisma.XOR<Prisma.symbol_mafjpUpdateManyMutationInput, Prisma.symbol_mafjpUncheckedUpdateManyWithoutSymbol_orientationInput>
+}
+
+export type symbol_mafjpCreateWithoutSymbol_mafjp_unitInput = {
+  id?: string
+  font_list?: string | null
+  symbol_name?: string | null
+  sequence_no?: number | null
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeCreateNestedOneWithoutSymbol_mafjpInput
+  symbol_orientation?: Prisma.symbol_orientationCreateNestedOneWithoutSymbol_mafjpInput
 }
 
 export type symbol_mafjpUncheckedCreateWithoutSymbol_mafjp_unitInput = {
@@ -491,17 +680,76 @@ export type symbol_mafjpUpdateManyWithWhereWithoutSymbol_mafjp_unitInput = {
   data: Prisma.XOR<Prisma.symbol_mafjpUpdateManyMutationInput, Prisma.symbol_mafjpUncheckedUpdateManyWithoutSymbol_mafjp_unitInput>
 }
 
-export type symbol_mafjpScalarWhereInput = {
-  AND?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
-  OR?: Prisma.symbol_mafjpScalarWhereInput[]
-  NOT?: Prisma.symbol_mafjpScalarWhereInput | Prisma.symbol_mafjpScalarWhereInput[]
-  id?: Prisma.UuidFilter<"symbol_mafjp"> | string
-  symbol_mafjp_unit_id?: Prisma.UuidNullableFilter<"symbol_mafjp"> | string | null
-  symbol_type_id?: Prisma.UuidNullableFilter<"symbol_mafjp"> | string | null
-  font_list?: Prisma.StringNullableFilter<"symbol_mafjp"> | string | null
-  symbol_orientation_id?: Prisma.UuidNullableFilter<"symbol_mafjp"> | string | null
-  symbol_name?: Prisma.StringNullableFilter<"symbol_mafjp"> | string | null
-  sequence_no?: Prisma.IntNullableFilter<"symbol_mafjp"> | number | null
+export type symbol_mafjpCreateManySymbol_mafjp_typeInput = {
+  id?: string
+  symbol_mafjp_unit_id?: string | null
+  font_list?: string | null
+  symbol_orientation_id?: string | null
+  symbol_name?: string | null
+  sequence_no?: number | null
+}
+
+export type symbol_mafjpUpdateWithoutSymbol_mafjp_typeInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  symbol_mafjp_unit?: Prisma.symbol_mafjp_unitUpdateOneWithoutSymbol_mafjpNestedInput
+  symbol_orientation?: Prisma.symbol_orientationUpdateOneWithoutSymbol_mafjpNestedInput
+}
+
+export type symbol_mafjpUncheckedUpdateWithoutSymbol_mafjp_typeInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  symbol_mafjp_unit_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_orientation_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+}
+
+export type symbol_mafjpUncheckedUpdateManyWithoutSymbol_mafjp_typeInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  symbol_mafjp_unit_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_orientation_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+}
+
+export type symbol_mafjpCreateManySymbol_orientationInput = {
+  id?: string
+  symbol_mafjp_unit_id?: string | null
+  symbol_type_id?: string | null
+  font_list?: string | null
+  symbol_name?: string | null
+  sequence_no?: number | null
+}
+
+export type symbol_mafjpUpdateWithoutSymbol_orientationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  symbol_mafjp_unit?: Prisma.symbol_mafjp_unitUpdateOneWithoutSymbol_mafjpNestedInput
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeUpdateOneWithoutSymbol_mafjpNestedInput
+}
+
+export type symbol_mafjpUncheckedUpdateWithoutSymbol_orientationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  symbol_mafjp_unit_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_type_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+}
+
+export type symbol_mafjpUncheckedUpdateManyWithoutSymbol_orientationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  symbol_mafjp_unit_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_type_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type symbol_mafjpCreateManySymbol_mafjp_unitInput = {
@@ -515,11 +763,11 @@ export type symbol_mafjpCreateManySymbol_mafjp_unitInput = {
 
 export type symbol_mafjpUpdateWithoutSymbol_mafjp_unitInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  symbol_type_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   font_list?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  symbol_orientation_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   symbol_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   sequence_no?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  symbol_mafjp_type?: Prisma.symbol_mafjp_typeUpdateOneWithoutSymbol_mafjpNestedInput
+  symbol_orientation?: Prisma.symbol_orientationUpdateOneWithoutSymbol_mafjpNestedInput
 }
 
 export type symbol_mafjpUncheckedUpdateWithoutSymbol_mafjp_unitInput = {
@@ -551,6 +799,8 @@ export type symbol_mafjpSelect<ExtArgs extends runtime.Types.Extensions.Internal
   symbol_name?: boolean
   sequence_no?: boolean
   symbol_mafjp_unit?: boolean | Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs>
+  symbol_mafjp_type?: boolean | Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs>
+  symbol_orientation?: boolean | Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs>
 }, ExtArgs["result"]["symbol_mafjp"]>
 
 export type symbol_mafjpSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -562,6 +812,8 @@ export type symbol_mafjpSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   symbol_name?: boolean
   sequence_no?: boolean
   symbol_mafjp_unit?: boolean | Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs>
+  symbol_mafjp_type?: boolean | Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs>
+  symbol_orientation?: boolean | Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs>
 }, ExtArgs["result"]["symbol_mafjp"]>
 
 export type symbol_mafjpSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -573,6 +825,8 @@ export type symbol_mafjpSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   symbol_name?: boolean
   sequence_no?: boolean
   symbol_mafjp_unit?: boolean | Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs>
+  symbol_mafjp_type?: boolean | Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs>
+  symbol_orientation?: boolean | Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs>
 }, ExtArgs["result"]["symbol_mafjp"]>
 
 export type symbol_mafjpSelectScalar = {
@@ -588,18 +842,26 @@ export type symbol_mafjpSelectScalar = {
 export type symbol_mafjpOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "symbol_mafjp_unit_id" | "symbol_type_id" | "font_list" | "symbol_orientation_id" | "symbol_name" | "sequence_no", ExtArgs["result"]["symbol_mafjp"]>
 export type symbol_mafjpInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   symbol_mafjp_unit?: boolean | Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs>
+  symbol_mafjp_type?: boolean | Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs>
+  symbol_orientation?: boolean | Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs>
 }
 export type symbol_mafjpIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   symbol_mafjp_unit?: boolean | Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs>
+  symbol_mafjp_type?: boolean | Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs>
+  symbol_orientation?: boolean | Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs>
 }
 export type symbol_mafjpIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   symbol_mafjp_unit?: boolean | Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs>
+  symbol_mafjp_type?: boolean | Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs>
+  symbol_orientation?: boolean | Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs>
 }
 
 export type $symbol_mafjpPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "symbol_mafjp"
   objects: {
     symbol_mafjp_unit: Prisma.$symbol_mafjp_unitPayload<ExtArgs> | null
+    symbol_mafjp_type: Prisma.$symbol_mafjp_typePayload<ExtArgs> | null
+    symbol_orientation: Prisma.$symbol_orientationPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1004,6 +1266,8 @@ readonly fields: symbol_mafjpFieldRefs;
 export interface Prisma__symbol_mafjpClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   symbol_mafjp_unit<T extends Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs>>): Prisma.Prisma__symbol_mafjp_unitClient<runtime.Types.Result.GetResult<Prisma.$symbol_mafjp_unitPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  symbol_mafjp_type<T extends Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs>>): Prisma.Prisma__symbol_mafjp_typeClient<runtime.Types.Result.GetResult<Prisma.$symbol_mafjp_typePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  symbol_orientation<T extends Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.symbol_mafjp$symbol_orientationArgs<ExtArgs>>): Prisma.Prisma__symbol_orientationClient<runtime.Types.Result.GetResult<Prisma.$symbol_orientationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1457,6 +1721,44 @@ export type symbol_mafjp$symbol_mafjp_unitArgs<ExtArgs extends runtime.Types.Ext
    */
   include?: Prisma.symbol_mafjp_unitInclude<ExtArgs> | null
   where?: Prisma.symbol_mafjp_unitWhereInput
+}
+
+/**
+ * symbol_mafjp.symbol_mafjp_type
+ */
+export type symbol_mafjp$symbol_mafjp_typeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the symbol_mafjp_type
+   */
+  select?: Prisma.symbol_mafjp_typeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the symbol_mafjp_type
+   */
+  omit?: Prisma.symbol_mafjp_typeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.symbol_mafjp_typeInclude<ExtArgs> | null
+  where?: Prisma.symbol_mafjp_typeWhereInput
+}
+
+/**
+ * symbol_mafjp.symbol_orientation
+ */
+export type symbol_mafjp$symbol_orientationArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the symbol_orientation
+   */
+  select?: Prisma.symbol_orientationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the symbol_orientation
+   */
+  omit?: Prisma.symbol_orientationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.symbol_orientationInclude<ExtArgs> | null
+  where?: Prisma.symbol_orientationWhereInput
 }
 
 /**

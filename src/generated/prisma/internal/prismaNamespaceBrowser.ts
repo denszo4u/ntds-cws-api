@@ -52,17 +52,21 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   SymbolEM: 'SymbolEM',
-  SymbolMAFJP: 'SymbolMAFJP',
+  SymbolType: 'SymbolType',
+  SymbolTypeLibrary: 'SymbolTypeLibrary',
   SymbolMAFJPCategory: 'SymbolMAFJPCategory',
   SymbolMAFJPType: 'SymbolMAFJPType',
   SymbolMAFJPUnit: 'SymbolMAFJPUnit',
+  SymbolMAFJP: 'SymbolMAFJP',
   SymbolOrientation: 'SymbolOrientation',
-  SymbolType: 'SymbolType',
-  SymbolTypeLibrary: 'SymbolTypeLibrary',
   SymbolNTDSCWSCategory: 'SymbolNTDSCWSCategory',
   SymbolNTDSCWSType: 'SymbolNTDSCWSType',
   SymbolNTDSCWSUnit: 'SymbolNTDSCWSUnit',
   SymbolNTDSCWS: 'SymbolNTDSCWS',
+  symbol_mafjp_category: 'symbol_mafjp_category',
+  symbol_mafjp_type: 'symbol_mafjp_type',
+  symbol_orientation: 'symbol_orientation',
+  symbol_type_library: 'symbol_type_library',
   symbol_mafjp_unit: 'symbol_mafjp_unit',
   symbol_mafjp: 'symbol_mafjp'
 } as const
@@ -93,17 +97,23 @@ export const SymbolEMScalarFieldEnum = {
 export type SymbolEMScalarFieldEnum = (typeof SymbolEMScalarFieldEnum)[keyof typeof SymbolEMScalarFieldEnum]
 
 
-export const SymbolMAFJPScalarFieldEnum = {
-  SymbolID: 'SymbolID',
-  SymbolUnitID: 'SymbolUnitID',
-  SymbolTypeID: 'SymbolTypeID',
-  FontList: 'FontList',
-  SymbolOrientationID: 'SymbolOrientationID',
-  SymbolName: 'SymbolName',
-  SequenceNo: 'SequenceNo'
+export const SymbolTypeScalarFieldEnum = {
+  TypeCode: 'TypeCode',
+  EM: 'EM',
+  NameEN: 'NameEN',
+  NameBM: 'NameBM'
 } as const
 
-export type SymbolMAFJPScalarFieldEnum = (typeof SymbolMAFJPScalarFieldEnum)[keyof typeof SymbolMAFJPScalarFieldEnum]
+export type SymbolTypeScalarFieldEnum = (typeof SymbolTypeScalarFieldEnum)[keyof typeof SymbolTypeScalarFieldEnum]
+
+
+export const SymbolTypeLibraryScalarFieldEnum = {
+  SymbolTypeLibID: 'SymbolTypeLibID',
+  SymbolTypeLibName: 'SymbolTypeLibName',
+  Description: 'Description'
+} as const
+
+export type SymbolTypeLibraryScalarFieldEnum = (typeof SymbolTypeLibraryScalarFieldEnum)[keyof typeof SymbolTypeLibraryScalarFieldEnum]
 
 
 export const SymbolMAFJPCategoryScalarFieldEnum = {
@@ -138,6 +148,19 @@ export const SymbolMAFJPUnitScalarFieldEnum = {
 export type SymbolMAFJPUnitScalarFieldEnum = (typeof SymbolMAFJPUnitScalarFieldEnum)[keyof typeof SymbolMAFJPUnitScalarFieldEnum]
 
 
+export const SymbolMAFJPScalarFieldEnum = {
+  SymbolID: 'SymbolID',
+  SymbolUnitID: 'SymbolUnitID',
+  SymbolTypeID: 'SymbolTypeID',
+  FontList: 'FontList',
+  SymbolOrientationID: 'SymbolOrientationID',
+  SymbolName: 'SymbolName',
+  SequenceNo: 'SequenceNo'
+} as const
+
+export type SymbolMAFJPScalarFieldEnum = (typeof SymbolMAFJPScalarFieldEnum)[keyof typeof SymbolMAFJPScalarFieldEnum]
+
+
 export const SymbolOrientationScalarFieldEnum = {
   SymbolOrientationID: 'SymbolOrientationID',
   SymbolOrientationNameEN: 'SymbolOrientationNameEN',
@@ -145,25 +168,6 @@ export const SymbolOrientationScalarFieldEnum = {
 } as const
 
 export type SymbolOrientationScalarFieldEnum = (typeof SymbolOrientationScalarFieldEnum)[keyof typeof SymbolOrientationScalarFieldEnum]
-
-
-export const SymbolTypeScalarFieldEnum = {
-  TypeCode: 'TypeCode',
-  EM: 'EM',
-  NameEN: 'NameEN',
-  NameBM: 'NameBM'
-} as const
-
-export type SymbolTypeScalarFieldEnum = (typeof SymbolTypeScalarFieldEnum)[keyof typeof SymbolTypeScalarFieldEnum]
-
-
-export const SymbolTypeLibraryScalarFieldEnum = {
-  SymbolTypeLibID: 'SymbolTypeLibID',
-  SymbolTypeLibName: 'SymbolTypeLibName',
-  Description: 'Description'
-} as const
-
-export type SymbolTypeLibraryScalarFieldEnum = (typeof SymbolTypeLibraryScalarFieldEnum)[keyof typeof SymbolTypeLibraryScalarFieldEnum]
 
 
 export const SymbolNTDSCWSCategoryScalarFieldEnum = {
@@ -210,6 +214,45 @@ export const SymbolNTDSCWSScalarFieldEnum = {
 } as const
 
 export type SymbolNTDSCWSScalarFieldEnum = (typeof SymbolNTDSCWSScalarFieldEnum)[keyof typeof SymbolNTDSCWSScalarFieldEnum]
+
+
+export const Symbol_mafjp_categoryScalarFieldEnum = {
+  id: 'id',
+  symbol_category_name_en: 'symbol_category_name_en',
+  symbol_category_name_bm: 'symbol_category_name_bm',
+  symbol_description: 'symbol_description'
+} as const
+
+export type Symbol_mafjp_categoryScalarFieldEnum = (typeof Symbol_mafjp_categoryScalarFieldEnum)[keyof typeof Symbol_mafjp_categoryScalarFieldEnum]
+
+
+export const Symbol_mafjp_typeScalarFieldEnum = {
+  id: 'id',
+  symbol_type_name_en: 'symbol_type_name_en',
+  symbol_type_name_bm: 'symbol_type_name_bm',
+  symbol_type_description: 'symbol_type_description',
+  sequence_no: 'sequence_no'
+} as const
+
+export type Symbol_mafjp_typeScalarFieldEnum = (typeof Symbol_mafjp_typeScalarFieldEnum)[keyof typeof Symbol_mafjp_typeScalarFieldEnum]
+
+
+export const Symbol_orientationScalarFieldEnum = {
+  id: 'id',
+  symbol_orientation_name_en: 'symbol_orientation_name_en',
+  symbol_orientation_name_bm: 'symbol_orientation_name_bm'
+} as const
+
+export type Symbol_orientationScalarFieldEnum = (typeof Symbol_orientationScalarFieldEnum)[keyof typeof Symbol_orientationScalarFieldEnum]
+
+
+export const Symbol_type_libraryScalarFieldEnum = {
+  id: 'id',
+  symbol_type_lib_name: 'symbol_type_lib_name',
+  description: 'description'
+} as const
+
+export type Symbol_type_libraryScalarFieldEnum = (typeof Symbol_type_libraryScalarFieldEnum)[keyof typeof Symbol_type_libraryScalarFieldEnum]
 
 
 export const Symbol_mafjp_unitScalarFieldEnum = {

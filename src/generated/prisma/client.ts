@@ -47,10 +47,15 @@ export { Prisma }
  */
 export type SymbolEM = Prisma.SymbolEMModel
 /**
- * Model SymbolMAFJP
+ * Model SymbolType
  * 
  */
-export type SymbolMAFJP = Prisma.SymbolMAFJPModel
+export type SymbolType = Prisma.SymbolTypeModel
+/**
+ * Model SymbolTypeLibrary
+ * 
+ */
+export type SymbolTypeLibrary = Prisma.SymbolTypeLibraryModel
 /**
  * Model SymbolMAFJPCategory
  * 
@@ -67,20 +72,15 @@ export type SymbolMAFJPType = Prisma.SymbolMAFJPTypeModel
  */
 export type SymbolMAFJPUnit = Prisma.SymbolMAFJPUnitModel
 /**
+ * Model SymbolMAFJP
+ * 
+ */
+export type SymbolMAFJP = Prisma.SymbolMAFJPModel
+/**
  * Model SymbolOrientation
  * 
  */
 export type SymbolOrientation = Prisma.SymbolOrientationModel
-/**
- * Model SymbolType
- * 
- */
-export type SymbolType = Prisma.SymbolTypeModel
-/**
- * Model SymbolTypeLibrary
- * 
- */
-export type SymbolTypeLibrary = Prisma.SymbolTypeLibraryModel
 /**
  * Model SymbolNTDSCWSCategory
  * 
@@ -101,6 +101,26 @@ export type SymbolNTDSCWSUnit = Prisma.SymbolNTDSCWSUnitModel
  * 
  */
 export type SymbolNTDSCWS = Prisma.SymbolNTDSCWSModel
+/**
+ * Model symbol_mafjp_category
+ * 
+ */
+export type symbol_mafjp_category = Prisma.symbol_mafjp_categoryModel
+/**
+ * Model symbol_mafjp_type
+ * 
+ */
+export type symbol_mafjp_type = Prisma.symbol_mafjp_typeModel
+/**
+ * Model symbol_orientation
+ * 
+ */
+export type symbol_orientation = Prisma.symbol_orientationModel
+/**
+ * Model symbol_type_library
+ * 
+ */
+export type symbol_type_library = Prisma.symbol_type_libraryModel
 /**
  * Model symbol_mafjp_unit
  * 
